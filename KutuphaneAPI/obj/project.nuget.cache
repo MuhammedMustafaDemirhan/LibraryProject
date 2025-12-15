@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "73MJpZh6+uA=",
+  "dgSpecHash": "9V9RubcaPs4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\muham\\source\\repos\\KutuphaneAPI\\KutuphaneAPI.csproj",
+  "projectFilePath": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneAPI\\KutuphaneAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\muham\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\muham\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",

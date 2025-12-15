@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\muham\\source\\repos\\KutuphaneAPI\\KutuphaneAPI.csproj": {}
+    "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneAPI\\KutuphaneAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\muham\\source\\repos\\KutuphaneAPI\\KutuphaneAPI.csproj": {
+    "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneAPI\\KutuphaneAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\muham\\source\\repos\\KutuphaneAPI\\KutuphaneAPI.csproj",
+        "projectUniqueName": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneAPI\\KutuphaneAPI.csproj",
         "projectName": "KutuphaneAPI",
-        "projectPath": "C:\\Users\\muham\\source\\repos\\KutuphaneAPI\\KutuphaneAPI.csproj",
+        "projectPath": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneAPI\\KutuphaneAPI.csproj",
         "packagesPath": "C:\\Users\\muham\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\muham\\source\\repos\\KutuphaneAPI\\obj\\",
+        "outputPath": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\muham\\source\\repos\\KutuphaneService\\KutuphaneService.csproj": {
-                "projectPath": "C:\\Users\\muham\\source\\repos\\KutuphaneService\\KutuphaneService.csproj"
+              "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneService\\KutuphaneService.csproj": {
+                "projectPath": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneService\\KutuphaneService.csproj"
               }
             }
           }
@@ -82,14 +82,14 @@
         }
       }
     },
-    "C:\\Users\\muham\\source\\repos\\KutuphaneCore\\KutuphaneCore.csproj": {
+    "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneCore\\KutuphaneCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\muham\\source\\repos\\KutuphaneCore\\KutuphaneCore.csproj",
+        "projectUniqueName": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneCore\\KutuphaneCore.csproj",
         "projectName": "KutuphaneCore",
-        "projectPath": "C:\\Users\\muham\\source\\repos\\KutuphaneCore\\KutuphaneCore.csproj",
+        "projectPath": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneCore\\KutuphaneCore.csproj",
         "packagesPath": "C:\\Users\\muham\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\muham\\source\\repos\\KutuphaneCore\\obj\\",
+        "outputPath": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -147,14 +147,14 @@
         }
       }
     },
-    "C:\\Users\\muham\\source\\repos\\KutuphaneDataAccess\\KutuphaneDataAccess.csproj": {
+    "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneDataAccess\\KutuphaneDataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\muham\\source\\repos\\KutuphaneDataAccess\\KutuphaneDataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneDataAccess\\KutuphaneDataAccess.csproj",
         "projectName": "KutuphaneDataAccess",
-        "projectPath": "C:\\Users\\muham\\source\\repos\\KutuphaneDataAccess\\KutuphaneDataAccess.csproj",
+        "projectPath": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneDataAccess\\KutuphaneDataAccess.csproj",
         "packagesPath": "C:\\Users\\muham\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\muham\\source\\repos\\KutuphaneDataAccess\\obj\\",
+        "outputPath": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneDataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -175,8 +175,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\muham\\source\\repos\\KutuphaneCore\\KutuphaneCore.csproj": {
-                "projectPath": "C:\\Users\\muham\\source\\repos\\KutuphaneCore\\KutuphaneCore.csproj"
+              "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneCore\\KutuphaneCore.csproj": {
+                "projectPath": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneCore\\KutuphaneCore.csproj"
               }
             }
           }
@@ -216,14 +216,14 @@
         }
       }
     },
-    "C:\\Users\\muham\\source\\repos\\KutuphaneService\\KutuphaneService.csproj": {
+    "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneService\\KutuphaneService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\muham\\source\\repos\\KutuphaneService\\KutuphaneService.csproj",
+        "projectUniqueName": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneService\\KutuphaneService.csproj",
         "projectName": "KutuphaneService",
-        "projectPath": "C:\\Users\\muham\\source\\repos\\KutuphaneService\\KutuphaneService.csproj",
+        "projectPath": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneService\\KutuphaneService.csproj",
         "packagesPath": "C:\\Users\\muham\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\muham\\source\\repos\\KutuphaneService\\obj\\",
+        "outputPath": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -244,8 +244,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\muham\\source\\repos\\KutuphaneDataAccess\\KutuphaneDataAccess.csproj": {
-                "projectPath": "C:\\Users\\muham\\source\\repos\\KutuphaneDataAccess\\KutuphaneDataAccess.csproj"
+              "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneDataAccess\\KutuphaneDataAccess.csproj": {
+                "projectPath": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneDataAccess\\KutuphaneDataAccess.csproj"
               }
             }
           }
