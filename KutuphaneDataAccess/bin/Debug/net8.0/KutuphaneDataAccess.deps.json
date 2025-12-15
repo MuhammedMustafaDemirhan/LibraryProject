@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "KutuphaneDataAccess/1.0.0": {
+        "dependencies": {
+          "KutuphaneCore": "1.0.0"
+        },
+        "runtime": {
+          "KutuphaneDataAccess.dll": {}
+        }
+      },
+      "KutuphaneCore/1.0.0": {
+        "runtime": {
+          "KutuphaneCore.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "KutuphaneDataAccess/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "KutuphaneCore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
