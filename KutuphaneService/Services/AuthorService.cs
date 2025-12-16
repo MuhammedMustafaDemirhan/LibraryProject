@@ -58,7 +58,7 @@ namespace KutuphaneService.Services
 
         public IResponse<IEnumerable<Author>> GetByName(string name)
         {
-            var authorList = _authorRepository.GetAll().Where(x => x.Name == name).ToList();
+            var authorList = _authorRepository.GetAll().Where(x => x.Name.ToLower().Contains(name.ToLower())).ToList();
 
             if (authorList == null || authorList.Count == 0)
             {

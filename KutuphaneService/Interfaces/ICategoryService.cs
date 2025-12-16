@@ -11,9 +11,9 @@ namespace KutuphaneService.Interfaces
     {
         IResponse<IEnumerable<Category>> ListAll();
         IResponse<Category> GetById(int id);
-        Task<IResponse<Category>> Create(Category author);
-        Task<IResponse<Category>> Update(Category author);
+        Task<IResponse<Category>> Create(Category category);
+        Task<IResponse<Category>> Update(Category category);
         IResponse<Category> Delete(int id);
-        Task<IResponse<Category>> GetByName(string name);
+        IResponse<IEnumerable<Category>> GetByName(string name);
     }
 }
