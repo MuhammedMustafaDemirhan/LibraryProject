@@ -11,9 +11,9 @@ namespace KutuphaneService.Interfaces
     {
         IResponse<IEnumerable<User>> ListAll();
         IResponse<User> GetById(int id);
-        Task<IResponse<User>> Create(User author);
-        Task<IResponse<User>> Update(User author);
+        Task<IResponse<User>> Create(User user);
+        Task<IResponse<User>> Update(User user);
         IResponse<User> Delete(int id);
-        Task<IResponse<User>> GetByName(string name);
+        IResponse<IEnumerable<User>> GetByName(string name);
     }
 }

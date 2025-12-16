@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KutuphaneService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b933134563bc948534ce3605bbb56205feb7722")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b0a5ea2bd6a2de29abc38cca62140dba8bc05e3f")]
 [assembly: System.Reflection.AssemblyProductAttribute("KutuphaneService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KutuphaneService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
