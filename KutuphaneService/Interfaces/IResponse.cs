@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KutuphaneService.Response
+namespace KutuphaneService.Interfaces
 {
-    public interface IResponse
+    public interface IResponse<T>
     {
         bool IsSuccess { get; }
         string Message { get; }
+        public T Data { get; set; }
     }
 }

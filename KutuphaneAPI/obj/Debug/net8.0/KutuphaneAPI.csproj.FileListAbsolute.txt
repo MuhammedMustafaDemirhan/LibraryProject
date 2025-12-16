@@ -210,7 +210,6 @@ C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug\net8.0\Kutuphan.39DA1CF0.Up2Date
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug\net8.0\KutuphaneAPI.dll
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug\net8.0\refint\KutuphaneAPI.dll
