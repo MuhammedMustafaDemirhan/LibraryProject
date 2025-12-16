@@ -15,6 +15,6 @@ namespace KutuphaneService.Interfaces
         Task<IResponse<Author>> Create(Author author);
         Task<IResponse<Author>> Update(Author author);
         IResponse<Author> Delete(int id);
-        Task<IResponse<Author>> GetByName(string name);
+        IResponse<IEnumerable<Author>> GetByName(string name);
     }
 }

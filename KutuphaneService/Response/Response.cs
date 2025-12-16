@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KutuphaneService.Response
 {
-    public class Response : IResponse
+    public class Response
     {
         public bool IsSuccess { get; protected set; }
 
