@@ -18,8 +18,4 @@
     <ProjectReference Include="..\KutuphaneService\KutuphaneService.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>
