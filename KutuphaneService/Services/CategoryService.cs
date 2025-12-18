@@ -22,63 +22,98 @@ namespace KutuphaneService.Services
 
         public Task<IResponse<Category>> Create(Category category)
         {
-            if (category == null)
+            try
             {
-                return Task.FromResult<IResponse<Category>>(ResponseGeneric<Category>.Error("Kategori bilgileri boş olamaz."));
+                if (category == null)
+                {
+                    return Task.FromResult<IResponse<Category>>(ResponseGeneric<Category>.Error("Kategori bilgileri boş olamaz."));
+                }
+
+                _categoryResository.Create(category);
+
+                return Task.FromResult<IResponse<Category>>(ResponseGeneric<Category>.Success(category, "Kategori başarıyla oluşturuldu."));
             }
-
-            _categoryResository.Create(category);
-
-            return Task.FromResult<IResponse<Category>>(ResponseGeneric<Category>.Success(category, "Kategori başarıyla oluşturuldu."));
+            catch
+            {
+                return Task.FromResult<IResponse<Category>>(ResponseGeneric<Category>.Error("Bir hata oluştu."));
+            }
         }
 
         public IResponse<Category> Delete(int id)
         {
-            var category = _categoryResository.GetByIdAsync(id).Result;
-            
-            if (category == null)
+            try
             {
-                return ResponseGeneric<Category>.Error("Kategori bulunamadı.");
+                var category = _categoryResository.GetByIdAsync(id).Result;
+
+                if (category == null)
+                {
+                    return ResponseGeneric<Category>.Error("Kategori bulunamadı.");
+                }
+
+                _categoryResository.Delete(category);
+
+                return ResponseGeneric<Category>.Success(category, "Kategori başarıyla silindi.");
             }
-
-            _categoryResository.Delete(category);
-
-            return ResponseGeneric<Category>.Success(category, "Kategori başarıyla silindi.");
+            catch
+            {
+                return ResponseGeneric<Category>.Error("Bir hata oluştu.");
+            }
         }
 
         public IResponse<Category> GetById(int id)
         {
-            var category = _categoryResository.GetByIdAsync(id).Result;
-
-            if (category == null)
+            try
             {
-                return ResponseGeneric<Category>.Success(null, "Kategori bulunamadı.");
+                var category = _categoryResository.GetByIdAsync(id).Result;
+
+                if (category == null)
+                {
+                    return ResponseGeneric<Category>.Success(null, "Kategori bulunamadı.");
+                }
+                return ResponseGeneric<Category>.Success(category, "Kategori başarıyla bulundu.");
             }
-            return ResponseGeneric<Category>.Success(category, "Kategori başarıyla bulundu.");
+            catch
+            {
+                return ResponseGeneric<Category>.Error("Bir hata oluştu.");
+            }
         }
 
         public IResponse<IEnumerable<Category>> GetByName(string name)
         {
-            var categories = _categoryResository.GetAll().Where(x => x.Name.ToLower().Contains(name.ToLower())).ToList();
-
-            if(categories == null || categories.Count == 0)
+            try
             {
-                return ResponseGeneric<IEnumerable<Category>>.Error("Kategori bulunamadı.");
-            }
+                var categories = _categoryResository.GetAll().Where(x => x.Name.ToLower().Contains(name.ToLower())).ToList();
 
-            return ResponseGeneric<IEnumerable<Category>>.Success(categories, "Kategoriler listelendi.");
+                if (categories == null || categories.Count == 0)
+                {
+                    return ResponseGeneric<IEnumerable<Category>>.Error("Kategori bulunamadı.");
+                }
+
+                return ResponseGeneric<IEnumerable<Category>>.Success(categories, "Kategoriler listelendi.");
+            }
+            catch
+            {
+                return ResponseGeneric<IEnumerable<Category>>.Error("Bir hata oluştu.");
+            }
         }
 
         public IResponse<IEnumerable<Category>> ListAll()
         {
-            var categories = _categoryResository.GetAll().ToList();
-
-            if(categories == null || categories.Count == 0)
+            try
             {
-                return ResponseGeneric<IEnumerable<Category>>.Error("Kategori bulunamadı.");
-            }
+                var categories = _categoryResository.GetAll().ToList();
 
-            return ResponseGeneric<IEnumerable<Category>>.Success(categories, "Kategoriler listelendi.");
+                if (categories == null || categories.Count == 0)
+                {
+                    return ResponseGeneric<IEnumerable<Category>>.Error("Kategori bulunamadı.");
+                }
+
+                return ResponseGeneric<IEnumerable<Category>>.Success(categories, "Kategoriler listelendi.");
+            }
+            catch
+            {
+                return ResponseGeneric<IEnumerable<Category>>.Error("Bir hata oluştu.");
+            }
         }
 
         public Task<IResponse<Category>> Update(Category author)
