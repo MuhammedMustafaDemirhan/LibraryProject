@@ -1,4 +1,8 @@
+using KutuphaneCore.Entities;
 using KutuphaneDataAccess;
+using KutuphaneDataAccess.Repository;
+using KutuphaneService.Interfaces;
+using KutuphaneService.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +14,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>();
+builder.Services.AddScoped<IGenericRepository<Author>, Repository<Author>>();
+builder.Services.AddScoped<IAuthorService, AuthorService>();
+//builder.Services.AddScoped<IBookService, BookService>();
+//builder.Services.AddScoped<ICategoryService, CategoryService>();
+//builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 

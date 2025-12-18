@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace KutuphaneService.Services
 {
-    internal class BookService : IBookService
+    public class BookService : IBookService
     {
         private readonly IGenericRepository<Book> _bookRepository;
         public BookService(IGenericRepository<Book> bookRepository)
