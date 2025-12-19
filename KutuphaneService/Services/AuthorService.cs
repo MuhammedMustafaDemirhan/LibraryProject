@@ -1,4 +1,6 @@
-﻿using KutuphaneCore.Entities;
+﻿using AutoMapper;
+using KutuphaneCore.DTOs;
+using KutuphaneCore.Entities;
 using KutuphaneDataAccess.Repository;
 using KutuphaneService.Interfaces;
 using KutuphaneService.Response;
@@ -14,23 +16,28 @@ namespace KutuphaneService.Services
     public class AuthorService : IAuthorService
     {
         private readonly IGenericRepository<Author> _authorRepository;
-        public AuthorService(IGenericRepository<Author> authorRepository)
+        private readonly IMapper _mapper;
+        public AuthorService(IGenericRepository<Author> authorRepository, IMapper mapper)
         {
             _authorRepository = authorRepository;
+            _mapper = mapper;
         }
 
-        public Task<IResponse<Author>> Create(Author author)
+        public Task<IResponse<Author>> Create(AuthorCreateDto authorCreateDto)
         {
             try
             {
-                if (author == null)
+                if (authorCreateDto == null)
                 {
                     return Task.FromResult<IResponse<Author>>(ResponseGeneric<Author>.Error("Yazar bilgileri boş olamaz."));
                 }
 
-                _authorRepository.Create(author);
+                var entity = _mapper.Map<Author>(authorCreateDto);
+                entity.CreatedDate = DateTime.Now;
 
-                return Task.FromResult<IResponse<Author>>(ResponseGeneric<Author>.Success(author, "Yazar başarıyla oluşturuldu."));
+                _authorRepository.Create(entity);
+
+                return Task.FromResult<IResponse<Author>>(ResponseGeneric<Author>.Success(entity, "Yazar başarıyla oluşturuldu."));
             }
             catch
             {

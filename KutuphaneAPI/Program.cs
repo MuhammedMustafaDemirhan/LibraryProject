@@ -2,6 +2,7 @@ using KutuphaneCore.Entities;
 using KutuphaneDataAccess;
 using KutuphaneDataAccess.Repository;
 using KutuphaneService.Interfaces;
+using KutuphaneService.MapProfile;
 using KutuphaneService.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>();
+builder.Services.AddAutoMapper(cfg => cfg.AddProfile(new MapProfile()));
 builder.Services.AddScoped<IGenericRepository<Author>, Repository<Author>>();
 builder.Services.AddScoped<IAuthorService, AuthorService>();
 //builder.Services.AddScoped<IBookService, BookService>();

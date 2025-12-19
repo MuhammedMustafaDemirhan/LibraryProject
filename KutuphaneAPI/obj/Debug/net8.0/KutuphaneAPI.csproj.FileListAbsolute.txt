@@ -217,3 +217,4 @@ C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug\net8.0\KutuphaneAPI.genruntimeconfig.cache
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug\net8.0\ref\KutuphaneAPI.dll
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\AutoMapper.dll

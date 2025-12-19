@@ -1,4 +1,5 @@
-﻿using KutuphaneCore.Entities;
+﻿using KutuphaneCore.DTOs;
+using KutuphaneCore.Entities;
 using KutuphaneService.Response;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace KutuphaneService.Interfaces
     {
         IResponse<IEnumerable<Author>> ListAll();
         IResponse<Author> GetById(int id);
-        Task<IResponse<Author>> Create(Author author);
+        Task<IResponse<Author>> Create(AuthorCreateDto author);
         Task<IResponse<Author>> Update(Author author);
         IResponse<Author> Delete(int id);
         IResponse<IEnumerable<Author>> GetByName(string name);

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KutuphaneDataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+14fd48305c5ebd55595fc0a6ed11023299524b6a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+52f8e97f1fcc9208230c13695a86c953243bc4f2")]
 [assembly: System.Reflection.AssemblyProductAttribute("KutuphaneDataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KutuphaneDataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,4 +1,5 @@
-﻿using KutuphaneCore.Entities;
+﻿using KutuphaneCore.DTOs;
+using KutuphaneCore.Entities;
 using KutuphaneService.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -66,7 +67,7 @@ namespace KutuphaneAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody]Author author)
+        public IActionResult Create([FromBody]AuthorCreateDto author)
         {
             if (author == null)
                 return BadRequest("Yazar bilgileri boş olamaz.");
