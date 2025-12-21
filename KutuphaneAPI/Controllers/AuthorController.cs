@@ -21,8 +21,8 @@ namespace KutuphaneAPI.Controllers
         {
             var authors = _authorService.ListAll();
 
-            if (authors == null)
-                return BadRequest("Yazar bulunamadı.");
+            if (!authors.IsSuccess)
+                return NotFound("Yazar bulunamadı.");
 
             return Ok(authors);
         }
@@ -30,13 +30,10 @@ namespace KutuphaneAPI.Controllers
         [HttpGet("GetByName")]
         public IActionResult GetByName(string name)
         {
-            if (name == null)
-                return BadRequest("Ad alanı boş bırakılamaz.");
-
             var result = _authorService.GetByName(name);
 
-            if (result == null)
-                return BadRequest("Yazar bulunamadı.");
+            if (!result.IsSuccess)
+                return NotFound("Yazar bulunamadı.");
 
             return Ok(result);
         }
@@ -44,13 +41,10 @@ namespace KutuphaneAPI.Controllers
         [HttpGet("GetById")]
         public IActionResult GetById(int id)
         {
-            if (id == null)
-                return BadRequest("Geçerli bir Id değeri giriniz.");
-
             var author = _authorService.GetById(id);
 
-            if (author == null)
-                return BadRequest("Yazar bulunamadı.");
+            if (!author.IsSuccess)
+                return NotFound("Yazar bulunamadı.");
 
             return Ok(author);
         }
@@ -60,7 +54,7 @@ namespace KutuphaneAPI.Controllers
         {
             var result = _authorService.Delete(id);
 
-            if (result == null)
+            if (!result.IsSuccess)
                 return BadRequest("Silme işlemi başarısız oldu.");
 
             return Ok(result);
@@ -74,7 +68,7 @@ namespace KutuphaneAPI.Controllers
 
             var result = _authorService.Create(author);
 
-            if (result == null)
+            if (!result.Result.IsSuccess)
                 return BadRequest("Yazar oluşturulamadı.");
 
             return Ok(result);
