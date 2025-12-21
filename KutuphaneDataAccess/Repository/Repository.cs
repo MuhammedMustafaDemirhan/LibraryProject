@@ -21,6 +21,7 @@ namespace KutuphaneDataAccess.Repository
         public void Create(TEntity entity)
         {
             _dbSet.Add(entity);
+            _dbContext.SaveChanges();
         }
         public async Task AddAsync(TEntity entity)
         {
@@ -30,11 +31,13 @@ namespace KutuphaneDataAccess.Repository
         public void Delete(TEntity entity)
         {
             _dbSet.Remove(entity);
+            _dbContext.SaveChanges();
         }
 
         public void DeleteRange(List<TEntity> entities)
         {
             _dbSet.RemoveRange(entities);
+            _dbContext.SaveChanges();
         }
 
         public IQueryable<TEntity> GetAll()
@@ -54,6 +57,7 @@ namespace KutuphaneDataAccess.Repository
         public void Update(TEntity entity)
         {
             _dbSet.Update(entity);
+            _dbContext.SaveChanges();
         }
 
         public IQueryable<TEntity> Queryable()

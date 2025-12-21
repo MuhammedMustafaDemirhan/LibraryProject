@@ -3,30 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B91F9921-2647-436E-B32F-9A741F835F01}|KutuphaneAPI.csproj|c:\\users\\muham\\source\\repos\\libraryproject\\libraryproject\\kutuphaneapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B91F9921-2647-436E-B32F-9A741F835F01}|KutuphaneAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{011428D0-78F5-4E52-BBD9-C0F5CFA30838}|..\\KutuphaneService\\KutuphaneService.csproj|c:\\users\\muham\\source\\repos\\libraryproject\\libraryproject\\kutuphaneservice\\services\\authorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{011428D0-78F5-4E52-BBD9-C0F5CFA30838}|..\\KutuphaneService\\KutuphaneService.csproj|c:\\users\\muham\\source\\repos\\libraryproject\\libraryproject\\kutuphaneservice\\mapprofile\\mapprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{011428D0-78F5-4E52-BBD9-C0F5CFA30838}|..\\KutuphaneService\\KutuphaneService.csproj|c:\\users\\muham\\source\\repos\\libraryproject\\libraryproject\\kutuphaneservice\\interfaces\\iauthorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5026F17E-4BA6-4E34-BC8C-DF50E8195793}|..\\KutuphaneDataAccess\\KutuphaneDataAccess.csproj|c:\\users\\muham\\source\\repos\\libraryproject\\libraryproject\\kutuphanedataaccess\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B91F9921-2647-436E-B32F-9A741F835F01}|KutuphaneAPI.csproj|c:\\users\\muham\\source\\repos\\libraryproject\\libraryproject\\kutuphaneapi\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B91F9921-2647-436E-B32F-9A741F835F01}|KutuphaneAPI.csproj|solutionrelative:controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5EF30B90-6190-47C5-9E4C-1FE0E724A1EC}|..\\KutuphaneCore\\KutuphaneCore.csproj|c:\\users\\muham\\source\\repos\\libraryproject\\libraryproject\\kutuphanecore\\entities\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{011428D0-78F5-4E52-BBD9-C0F5CFA30838}|..\\KutuphaneService\\KutuphaneService.csproj|c:\\users\\muham\\source\\repos\\libraryproject\\libraryproject\\kutuphaneservice\\services\\authorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5EF30B90-6190-47C5-9E4C-1FE0E724A1EC}|..\\KutuphaneCore\\KutuphaneCore.csproj|c:\\users\\muham\\source\\repos\\libraryproject\\libraryproject\\kutuphanecore\\entities\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{011428D0-78F5-4E52-BBD9-C0F5CFA30838}|..\\KutuphaneService\\KutuphaneService.csproj|c:\\users\\muham\\source\\repos\\libraryproject\\libraryproject\\kutuphaneservice\\interfaces\\iauthorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5EF30B90-6190-47C5-9E4C-1FE0E724A1EC}|..\\KutuphaneCore\\KutuphaneCore.csproj|c:\\users\\muham\\source\\repos\\libraryproject\\libraryproject\\kutuphanecore\\dtos\\authorcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{011428D0-78F5-4E52-BBD9-C0F5CFA30838}|..\\KutuphaneService\\KutuphaneService.csproj|c:\\users\\muham\\source\\repos\\libraryproject\\libraryproject\\kutuphaneservice\\mapprofile\\mapprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EF30B90-6190-47C5-9E4C-1FE0E724A1EC}|..\\KutuphaneCore\\KutuphaneCore.csproj|c:\\users\\muham\\source\\repos\\libraryproject\\libraryproject\\kutuphanecore\\dtos\\authordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,27 +34,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneAPI\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneAPI\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAaAAAAAAAAAA==",
+              "Title": "Repository.cs",
+              "DocumentMoniker": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneDataAccess\\Repository\\Repository.cs",
+              "RelativeDocumentMoniker": "..\\KutuphaneDataAccess\\Repository\\Repository.cs",
+              "ToolTip": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneDataAccess\\Repository\\Repository.cs",
+              "RelativeToolTip": "..\\KutuphaneDataAccess\\Repository\\Repository.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAA7wDsAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T18:35:00.567Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MapProfile.cs",
-              "DocumentMoniker": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneService\\MapProfile\\MapProfile.cs",
-              "RelativeDocumentMoniker": "..\\KutuphaneService\\MapProfile\\MapProfile.cs",
-              "ToolTip": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneService\\MapProfile\\MapProfile.cs",
-              "RelativeToolTip": "..\\KutuphaneService\\MapProfile\\MapProfile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T18:29:28.959Z",
+              "WhenOpened": "2025-12-21T14:03:37.841Z",
               "EditorCaption": ""
             },
             {
@@ -72,74 +52,61 @@
               "RelativeDocumentMoniker": "..\\KutuphaneService\\Interfaces\\IAuthorService.cs",
               "ToolTip": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneService\\Interfaces\\IAuthorService.cs",
               "RelativeToolTip": "..\\KutuphaneService\\Interfaces\\IAuthorService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T18:14:03.916Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AuthorService.cs",
-              "DocumentMoniker": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneService\\Services\\AuthorService.cs",
-              "RelativeDocumentMoniker": "..\\KutuphaneService\\Services\\AuthorService.cs",
-              "ToolTip": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneService\\Services\\AuthorService.cs",
-              "RelativeToolTip": "..\\KutuphaneService\\Services\\AuthorService.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAQwCYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T18:09:13.372Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BaseEntity.cs",
-              "DocumentMoniker": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneCore\\Entities\\BaseEntity.cs",
-              "RelativeDocumentMoniker": "..\\KutuphaneCore\\Entities\\BaseEntity.cs",
-              "ToolTip": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneCore\\Entities\\BaseEntity.cs",
-              "RelativeToolTip": "..\\KutuphaneCore\\Entities\\BaseEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T18:05:44.966Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Author.cs",
-              "DocumentMoniker": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneCore\\Entities\\Author.cs",
-              "RelativeDocumentMoniker": "..\\KutuphaneCore\\Entities\\Author.cs",
-              "ToolTip": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneCore\\Entities\\Author.cs",
-              "RelativeToolTip": "..\\KutuphaneCore\\Entities\\Author.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T18:02:35.57Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AuthorCreateDto.cs",
-              "DocumentMoniker": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneCore\\DTOs\\AuthorCreateDto.cs",
-              "RelativeDocumentMoniker": "..\\KutuphaneCore\\DTOs\\AuthorCreateDto.cs",
-              "ToolTip": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneCore\\DTOs\\AuthorCreateDto.cs",
-              "RelativeToolTip": "..\\KutuphaneCore\\DTOs\\AuthorCreateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T18:01:15.398Z",
+              "WhenOpened": "2025-12-21T14:00:59.022Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "MapProfile.cs",
+              "DocumentMoniker": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneService\\MapProfile\\MapProfile.cs",
+              "RelativeDocumentMoniker": "..\\KutuphaneService\\MapProfile\\MapProfile.cs",
+              "ToolTip": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneService\\MapProfile\\MapProfile.cs",
+              "RelativeToolTip": "..\\KutuphaneService\\MapProfile\\MapProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T13:18:28.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthorDto.cs",
+              "DocumentMoniker": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneCore\\DTOs\\AuthorDto.cs",
+              "RelativeDocumentMoniker": "..\\KutuphaneCore\\DTOs\\AuthorDto.cs",
+              "ToolTip": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneCore\\DTOs\\AuthorDto.cs",
+              "RelativeToolTip": "..\\KutuphaneCore\\DTOs\\AuthorDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T13:13:48.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthorService.cs",
+              "DocumentMoniker": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneService\\Services\\AuthorService.cs",
+              "RelativeDocumentMoniker": "..\\KutuphaneService\\Services\\AuthorService.cs",
+              "ToolTip": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneService\\Services\\AuthorService.cs",
+              "RelativeToolTip": "..\\KutuphaneService\\Services\\AuthorService.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAowA0AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T13:07:11.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "AuthorController.cs",
               "DocumentMoniker": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneAPI\\Controllers\\AuthorController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthorController.cs",
               "ToolTip": "C:\\Users\\muham\\source\\repos\\LibraryProject\\LibraryProject\\KutuphaneAPI\\Controllers\\AuthorController.cs",
               "RelativeToolTip": "Controllers\\AuthorController.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAkwEoAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAADoAAAAAAAAAAAAkwDgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T15:10:44.214Z",
+              "WhenOpened": "2025-12-21T13:06:53.199Z",
               "EditorCaption": ""
             }
           ]

@@ -65,7 +65,7 @@ namespace KutuphaneService.Services
             }
         }
 
-        public IResponse<Author> GetById(int id)
+        public IResponse<AuthorQueryDto> GetById(int id)
         {
             try
             {
@@ -73,18 +73,20 @@ namespace KutuphaneService.Services
 
                 if (author == null)
                 {
-                    return ResponseGeneric<Author>.Success(null, "Yazar bulunamadı.");
+                    return ResponseGeneric<AuthorQueryDto>.Error("Yazar bulunamadı.");
                 }
 
-                return ResponseGeneric<Author>.Success(author, "Yazar başarıyla bulundu.");
+                var authorQueryDto = _mapper.Map<AuthorQueryDto>(author);
+
+                return ResponseGeneric<AuthorQueryDto>.Success(authorQueryDto, "Yazar başarıyla bulundu.");
             }
             catch
             {
-                return ResponseGeneric<Author>.Error("Bir hata oluştu.");
+                return ResponseGeneric<AuthorQueryDto>.Error("Bir hata oluştu.");
             }
         }
 
-        public IResponse<IEnumerable<Author>> GetByName(string name)
+        public IResponse<IEnumerable<AuthorQueryDto>> GetByName(string name)
         {
             try
             {
@@ -92,33 +94,37 @@ namespace KutuphaneService.Services
 
                 if (authorList == null || authorList.Count == 0)
                 {
-                    return ResponseGeneric<IEnumerable<Author>>.Error("Yazar bulunamadı.");
+                    return ResponseGeneric<IEnumerable<AuthorQueryDto>>.Error("Yazar bulunamadı.");
                 }
 
-                return ResponseGeneric<IEnumerable<Author>>.Success(authorList, "Yazar başarıyla bulundu.");
+                var authorQueryDtos = _mapper.Map<IEnumerable<AuthorQueryDto>>(authorList);
+
+                return ResponseGeneric<IEnumerable<AuthorQueryDto>>.Success(authorQueryDtos, "Yazar başarıyla bulundu.");
             }
             catch
             {
-                return ResponseGeneric<IEnumerable<Author>>.Error("Bir hata oluştu.");
+                return ResponseGeneric<IEnumerable<AuthorQueryDto>>.Error("Bir hata oluştu.");
             }
         }
 
-        public IResponse<IEnumerable<Author>> ListAll()
+        public IResponse<IEnumerable<AuthorQueryDto>> ListAll()
         {
             try
             {
                 var allAuthors = _authorRepository.GetAll().ToList();
 
+                var authorQueryDtos = _mapper.Map<IEnumerable<AuthorQueryDto>>(allAuthors);
+
                 if (allAuthors.Count == 0 || allAuthors == null)
                 {
-                    return ResponseGeneric<IEnumerable<Author>>.Error("Yazar bulunamadı.");
+                    return ResponseGeneric<IEnumerable<AuthorQueryDto>>.Error("Yazar bulunamadı.");
                 }
 
-                return ResponseGeneric<IEnumerable<Author>>.Success(allAuthors, "Yazarlar listelendi.");
+                return ResponseGeneric<IEnumerable<AuthorQueryDto>>.Success(authorQueryDtos, "Yazarlar listelendi.");
             }
             catch
             {
-                return ResponseGeneric<IEnumerable<Author>>.Error("Bir hata oluştu.");
+                return ResponseGeneric<IEnumerable<AuthorQueryDto>>.Error("Bir hata oluştu.");
             }
         }
 

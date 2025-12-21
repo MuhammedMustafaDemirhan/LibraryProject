@@ -14,6 +14,7 @@ namespace KutuphaneService.MapProfile
         public MapProfile()
         {
             CreateMap<Author, AuthorCreateDto>().ReverseMap();
+            CreateMap<Author, AuthorQueryDto>().ReverseMap();
         }
     }
 }
