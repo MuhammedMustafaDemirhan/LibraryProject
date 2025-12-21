@@ -1,4 +1,5 @@
 ﻿using KutuphaneCore.Entities;
+using KutuphaneDataAccess.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace KutuphaneService.Interfaces
 {
     public interface IBookService
     {
-        IResponse<IEnumerable<Book>> ListAll();
-        IResponse<Book> GetById(int id);
-        Task<IResponse<Book>> Create(Book book);
+        IResponse<IEnumerable<BookQueryDto>> ListAll();
+        IResponse<BookQueryDto> GetById(int id);
+        Task<IResponse<BookCreateDto>> Create(BookCreateDto book);
         Task<IResponse<Book>> Update(Book book);
-        IResponse<Book> Delete(int id);
-        IResponse<IEnumerable<Book>> GetByName(string title);
+        IResponse<BookQueryDto> Delete(int id);
+        IResponse<IEnumerable<BookQueryDto>> GetByName(string title);
     }
 }

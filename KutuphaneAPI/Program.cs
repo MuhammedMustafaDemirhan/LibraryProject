@@ -17,8 +17,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>();
 builder.Services.AddAutoMapper(cfg => cfg.AddProfile(new MapProfile()));
 builder.Services.AddScoped<IGenericRepository<Author>, Repository<Author>>();
+builder.Services.AddScoped<IGenericRepository<Book>, Repository<Book>>();
 builder.Services.AddScoped<IAuthorService, AuthorService>();
-//builder.Services.AddScoped<IBookService, BookService>();
+builder.Services.AddScoped<IBookService, BookService>();
 //builder.Services.AddScoped<ICategoryService, CategoryService>();
 //builder.Services.AddScoped<IUserService, UserService>();
 

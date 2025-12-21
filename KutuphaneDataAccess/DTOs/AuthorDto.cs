@@ -17,7 +17,7 @@ namespace KutuphaneCore.DTOs
     public class AuthorQueryDto
     {
         public int Id { get; set; }
-        public DateTime RecordDate { get; set; }
+        public DateTime CreatedDate { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string PlaceOfBirth { get; set; }

@@ -1,4 +1,6 @@
-﻿using KutuphaneCore.Entities;
+﻿using AutoMapper;
+using KutuphaneCore.Entities;
+using KutuphaneDataAccess.DTOs;
 using KutuphaneDataAccess.Repository;
 using KutuphaneService.Interfaces;
 using KutuphaneService.Response;
@@ -13,31 +15,35 @@ namespace KutuphaneService.Services
     public class BookService : IBookService
     {
         private readonly IGenericRepository<Book> _bookRepository;
-        public BookService(IGenericRepository<Book> bookRepository)
+        private readonly IMapper _mapper;
+        public BookService(IGenericRepository<Book> bookRepository, IMapper mapper)
         {
             _bookRepository = bookRepository;
+            _mapper = mapper;
         }
 
-
-        public Task<IResponse<Book>> Create(Book book)
+        public Task<IResponse<BookCreateDto>> Create(BookCreateDto createBookModel)
         {
             try
             {
-                if (book == null)
+                if (createBookModel == null)
                 {
-                    return Task.FromResult<IResponse<Book>>(ResponseGeneric<Book>.Error("Kitap bilgileri boş olamaz."));
+                    return Task.FromResult<IResponse<BookCreateDto>>(ResponseGeneric<BookCreateDto>.Error("Kitap bilgileri boş olamaz."));
                 }
 
+                var book = _mapper.Map<Book>(createBookModel);
+                book.CreatedDate = DateTime.Now;
+
                 _bookRepository.Create(book);
-                return Task.FromResult<IResponse<Book>>(ResponseGeneric<Book>.Success(book, "Kitap başarıyla oluşturuldu."));
+                return Task.FromResult<IResponse<BookCreateDto>>(ResponseGeneric<BookCreateDto>.Success(null, "Kitap başarıyla oluşturuldu."));
             }
             catch
             {
-                return Task.FromResult<IResponse<Book>>(ResponseGeneric<Book>.Error("Bir hata oluştu."));
+                return Task.FromResult<IResponse<BookCreateDto>>(ResponseGeneric<BookCreateDto>.Error("Bir hata oluştu."));
             }
         }
 
-        public IResponse<Book> Delete(int id)
+        public IResponse<BookQueryDto> Delete(int id)
         {
             try
             {
@@ -45,73 +51,79 @@ namespace KutuphaneService.Services
 
                 if (book == null)
                 {
-                    return ResponseGeneric<Book>.Error("Kitap bulunamadı.");
+                    return ResponseGeneric<BookQueryDto>.Error("Kitap bulunamadı.");
                 }
 
                 _bookRepository.Delete(book);
-                return ResponseGeneric<Book>.Success(book, "Kitap başarıyla silindi..");
+                return ResponseGeneric<BookQueryDto>.Success(null, "Kitap başarıyla silindi..");
             }
             catch
             {
-                return ResponseGeneric<Book>.Error("Bir hata oluştu.");
+                return ResponseGeneric<BookQueryDto>.Error("Bir hata oluştu.");
             }
         }
 
-        public IResponse<Book> GetById(int id)
+        public IResponse<BookQueryDto> GetById(int id)
         {
             try
             {
                 var book = _bookRepository.GetByIdAsync(id).Result;
 
+                var bookDto = _mapper.Map<BookQueryDto>(book);
+
                 if (book == null)
                 {
-                    return ResponseGeneric<Book>.Success(null, "Kitap bulunamadı.");
+                    return ResponseGeneric<BookQueryDto>.Success(null, "Kitap bulunamadı.");
                 }
 
-                return ResponseGeneric<Book>.Success(book, "Kitap başarıyla bulundu.");
+                return ResponseGeneric<BookQueryDto>.Success(bookDto, "Kitap başarıyla bulundu.");
             }
             catch
             {
-                return ResponseGeneric<Book>.Error("Bir hata oluştu.");
+                return ResponseGeneric<BookQueryDto>.Error("Bir hata oluştu.");
             }
         }
 
-        public IResponse<IEnumerable<Book>> GetByName(string title)
+        public IResponse<IEnumerable<BookQueryDto>> GetByName(string title)
         {
             try
             {
                 var bookList = _bookRepository.GetAll().Where(x => x.Title.ToLower().Contains(title.ToLower())).ToList();
 
-                if (bookList == null || bookList.Count == 0)
+                var bookDtos = _mapper.Map<IEnumerable<BookQueryDto>>(bookList);
+
+                if (bookDtos == null || bookDtos.ToList().Count == 0)
                 {
-                    return ResponseGeneric<IEnumerable<Book>>.Error("Kitap bulunamadı.");
+                    return ResponseGeneric<IEnumerable<BookQueryDto>>.Error("Kitap bulunamadı.");
                 }
 
-                return ResponseGeneric<IEnumerable<Book>>.Success(bookList, "Kitap başarıyla bulundu.");
+                return ResponseGeneric<IEnumerable<BookQueryDto>>.Success(bookDtos, "Kitap başarıyla bulundu.");
             }
             catch
             {
-                return ResponseGeneric<IEnumerable<Book>>.Error("Bir hata oluştu.");
+                return ResponseGeneric<IEnumerable<BookQueryDto>>.Error("Bir hata oluştu.");
             }
             
         }
 
-        public IResponse<IEnumerable<Book>> ListAll()
+        public IResponse<IEnumerable<BookQueryDto>> ListAll()
         {
             try
             {
                 var allBooks = _bookRepository.GetAll().ToList();
 
-                if (allBooks.Count == 0 || allBooks == null)
+                var bookDtos = _mapper.Map<IEnumerable<BookQueryDto>>(allBooks);
+
+                if (bookDtos.ToList().Count == 0 || bookDtos == null)
                 {
-                    return ResponseGeneric<IEnumerable<Book>>.Error("Yazar bulunamadı.");
+                    return ResponseGeneric<IEnumerable<BookQueryDto>>.Error("Kitap bulunamadı.");
                 }
 
-                return ResponseGeneric<IEnumerable<Book>>.Success(allBooks, "Yazarlar listelendi.");
+                return ResponseGeneric<IEnumerable<BookQueryDto>>.Success(bookDtos, "Kitaplar listelendi.");
             }
             catch
             {
-                return ResponseGeneric<IEnumerable<Book>>.Error("Bir hata oluştu.");
+                return ResponseGeneric<IEnumerable<BookQueryDto>>.Error("Bir hata oluştu.");
             }
         }
 
