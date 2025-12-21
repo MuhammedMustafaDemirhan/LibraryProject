@@ -19,6 +19,9 @@ namespace KutuphaneService.MapProfile
 
             CreateMap<Book, BookCreateDto>().ReverseMap();
             CreateMap<Book, BookQueryDto>().ReverseMap();
+
+            CreateMap<Category, CategoryCreateDto>().ReverseMap();
+            CreateMap<Category, CategoryQueryDto>().ReverseMap();
         }
     }
 }

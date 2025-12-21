@@ -27,17 +27,6 @@ namespace KutuphaneAPI.Controllers
             return Ok(authors);
         }
 
-        [HttpGet("GetByName")]
-        public IActionResult GetByName(string name)
-        {
-            var result = _authorService.GetByName(name);
-
-            if (!result.IsSuccess)
-                return NotFound("Yazar bulunamadı.");
-
-            return Ok(result);
-        }
-
         [HttpGet("GetById")]
         public IActionResult GetById(int id)
         {
@@ -47,6 +36,17 @@ namespace KutuphaneAPI.Controllers
                 return NotFound("Yazar bulunamadı.");
 
             return Ok(author);
+        }
+
+        [HttpGet("GetByName")]
+        public IActionResult GetByName(string name)
+        {
+            var result = _authorService.GetByName(name);
+
+            if (!result.IsSuccess)
+                return NotFound("Yazar bulunamadı.");
+
+            return Ok(result);
         }
 
         [HttpDelete]

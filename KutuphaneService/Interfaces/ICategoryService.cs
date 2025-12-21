@@ -1,4 +1,5 @@
 ﻿using KutuphaneCore.Entities;
+using KutuphaneDataAccess.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace KutuphaneService.Interfaces
 {
     public interface ICategoryService
     {
-        IResponse<IEnumerable<Category>> ListAll();
-        IResponse<Category> GetById(int id);
-        Task<IResponse<Category>> Create(Category category);
+        IResponse<IEnumerable<CategoryQueryDto>> ListAll();
+        IResponse<CategoryQueryDto> GetById(int id);
+        Task<IResponse<CategoryCreateDto>> Create(CategoryCreateDto category);
         Task<IResponse<Category>> Update(Category category);
-        IResponse<Category> Delete(int id);
-        IResponse<IEnumerable<Category>> GetByName(string name);
+        IResponse<CategoryQueryDto> Delete(int id);
+        IResponse<IEnumerable<CategoryQueryDto>> GetByName(string name);
     }
 }
