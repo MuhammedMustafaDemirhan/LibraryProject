@@ -4,6 +4,7 @@ using KutuphaneDataAccess.DTOs;
 using KutuphaneDataAccess.Repository;
 using KutuphaneService.Interfaces;
 using KutuphaneService.Response;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,13 @@ namespace KutuphaneService.Services
     {
         private readonly IGenericRepository<Category> _categoryResository;
         private readonly IMapper _mapper;
+        private readonly ILogger<CategoryService> _logger;
 
-        public CategoryService(IGenericRepository<Category> categoryResository, IMapper mapper)
+        public CategoryService(IGenericRepository<Category> categoryResository, IMapper mapper, ILogger<CategoryService> logger)
         {
             _categoryResository = categoryResository;
             _mapper = mapper;
+            _logger = logger;
         }
 
 
@@ -38,10 +41,12 @@ namespace KutuphaneService.Services
 
                 _categoryResository.Create(entity);
 
+                _logger.LogInformation("Kategori başarıyla oluşturuldu.", category.Name);
                 return Task.FromResult<IResponse<CategoryCreateDto>>(ResponseGeneric<CategoryCreateDto>.Success(null, "Kategori başarıyla oluşturuldu."));
             }
             catch
             {
+                _logger.LogWarning("Kategori oluşturulurken bir hata oluştu.", category.Name);
                 return Task.FromResult<IResponse<CategoryCreateDto>>(ResponseGeneric<CategoryCreateDto>.Error("Bir hata oluştu."));
             }
         }
@@ -59,10 +64,12 @@ namespace KutuphaneService.Services
 
                 _categoryResository.Delete(category);
 
+                _logger.LogInformation("Kategori başarıyla silindi.");
                 return ResponseGeneric<CategoryQueryDto>.Success(null, "Kategori başarıyla silindi.");
             }
             catch
             {
+                _logger.LogWarning("Kategori silinirken bir hata oluştu.");
                 return ResponseGeneric<CategoryQueryDto>.Error("Bir hata oluştu.");
             }
         }
@@ -129,8 +136,10 @@ namespace KutuphaneService.Services
             }
         }
 
-        public Task<IResponse<Category>> Update(Category author)
+        public Task<IResponse<Category>> Update(Category category)
         {
+            _logger.LogInformation("Kategori başarıyla güncellendi.", category.Name);
+            _logger.LogWarning("Kategori güncellenirken bir hata oluştu.", category.Name);
             throw new NotImplementedException();
         }
     }
