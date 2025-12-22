@@ -2,6 +2,7 @@
 using KutuphaneDataAccess.Repository;
 using KutuphaneService.Interfaces;
 using KutuphaneService.Response;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,10 @@ namespace KutuphaneService.Services
     public class UserService : IUserService
     {
         private readonly IGenericRepository<User> _userRepository;
-        public UserService(IGenericRepository<User> userRepository)
+        private readonly ILogger<UserService> _logger;
+        public UserService(IGenericRepository<User> userRepository, ILogger<UserService> logger)
         {
+            _logger = logger;
             _userRepository = userRepository;
         }
 
@@ -29,10 +32,12 @@ namespace KutuphaneService.Services
 
                 _userRepository.Create(user);
 
+                _logger.LogInformation("Kullanıcı başarıyla oluşturuldu.", user.Name + " " + user.Surname);
                 return Task.FromResult<IResponse<User>>(ResponseGeneric<User>.Success(user, "Kullanıcı başarıyla oluşturuldu."));
             }
             catch
             {
+                _logger.LogWarning("Kullanıcı oluşturulurken bir hata oluştu.", user.Name + " " + user.Surname);
                 return Task.FromResult<IResponse<User>>(ResponseGeneric<User>.Error("Bir hata oluştu."));
             }
         }
@@ -49,10 +54,13 @@ namespace KutuphaneService.Services
                 }
 
                 _userRepository.Delete(user);
+
+                _logger.LogInformation("Kullanıcı başarıyla silindi.");
                 return ResponseGeneric<User>.Success(user, "Kullanıcı başarıyla silindi.");
             }
             catch
             {
+                _logger.LogWarning("Kullanıcı silinirken bir hata oluştu.");
                 return ResponseGeneric<User>.Error("Bir hata oluştu.");
             }
         }
@@ -116,6 +124,8 @@ namespace KutuphaneService.Services
 
         public Task<IResponse<User>> Update(User user)
         {
+            _logger.LogInformation("Kullanıcı bilgileri başarıyla güncellendi.");
+            _logger.LogWarning("Kullanıcı bilgileri güncellenirken bir hata oluştu.");
             throw new NotImplementedException();
         }
     }
