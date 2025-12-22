@@ -4,8 +4,16 @@ using KutuphaneDataAccess.Repository;
 using KutuphaneService.Interfaces;
 using KutuphaneService.MapProfile;
 using KutuphaneService.Services;
+using Serilog;
+
+//Log Yapýlandýrmasý
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog();
 
 // Add services to the container.
 
@@ -22,7 +30,6 @@ builder.Services.AddScoped<IGenericRepository<Category>, Repository<Category>>()
 builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
-//builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 

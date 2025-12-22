@@ -4,6 +4,7 @@ using KutuphaneDataAccess.DTOs;
 using KutuphaneDataAccess.Repository;
 using KutuphaneService.Interfaces;
 using KutuphaneService.Response;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +17,12 @@ namespace KutuphaneService.Services
     {
         private readonly IGenericRepository<Book> _bookRepository;
         private readonly IMapper _mapper;
-        public BookService(IGenericRepository<Book> bookRepository, IMapper mapper)
+        private readonly ILogger<BookService> _logger;
+        public BookService(IGenericRepository<Book> bookRepository, IMapper mapper, ILogger<BookService> logger)
         {
             _bookRepository = bookRepository;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public Task<IResponse<BookCreateDto>> Create(BookCreateDto createBookModel)
@@ -35,10 +38,14 @@ namespace KutuphaneService.Services
                 book.CreatedDate = DateTime.Now;
 
                 _bookRepository.Create(book);
+
+                _logger.LogInformation("Kitap başarıyla oluşturuldu.", book.Title);
+
                 return Task.FromResult<IResponse<BookCreateDto>>(ResponseGeneric<BookCreateDto>.Success(null, "Kitap başarıyla oluşturuldu."));
             }
             catch
             {
+                _logger.LogError("Kitap oluşturulurken hata oluştu.", createBookModel.Title);
                 return Task.FromResult<IResponse<BookCreateDto>>(ResponseGeneric<BookCreateDto>.Error("Bir hata oluştu."));
             }
         }
@@ -55,10 +62,12 @@ namespace KutuphaneService.Services
                 }
 
                 _bookRepository.Delete(book);
+                _logger.LogInformation("Kitap başarıyla silindi.", book.Title);
                 return ResponseGeneric<BookQueryDto>.Success(null, "Kitap başarıyla silindi..");
             }
             catch
             {
+                _logger.LogError("Kitap silinirken hata oluştu.");
                 return ResponseGeneric<BookQueryDto>.Error("Bir hata oluştu.");
             }
         }

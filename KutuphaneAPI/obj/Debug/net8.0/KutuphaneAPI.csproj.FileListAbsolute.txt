@@ -218,3 +218,17 @@ C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug\net8.0\ref\KutuphaneAPI.dll
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Serilog.dll
+C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Serilog.AspNetCore.dll
+C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Serilog.Sinks.File.dll

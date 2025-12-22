@@ -1,0 +1,36 @@
+2025-12-22 19:03:33.269 +03:00 [INF] Now listening on: https://localhost:7096
+2025-12-22 19:03:33.301 +03:00 [INF] Now listening on: http://localhost:5245
+2025-12-22 19:03:33.445 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-22 19:03:33.445 +03:00 [INF] Hosting environment: Development
+2025-12-22 19:03:33.445 +03:00 [INF] Content root path: C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI
+2025-12-22 19:03:35.347 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger - null null
+2025-12-22 19:03:35.782 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger - 301 0 null 451.743ms
+2025-12-22 19:03:35.793 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/index.html - null null
+2025-12-22 19:03:36.085 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/index.html - 200 null text/html;charset=utf-8 291.202ms
+2025-12-22 19:03:36.092 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/swagger-ui-standalone-preset.js - null null
+2025-12-22 19:03:36.092 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/swagger-ui-bundle.js - null null
+2025-12-22 19:03:36.093 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/swagger-ui.css - null null
+2025-12-22 19:03:36.093 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-22 19:03:36.155 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 61.77ms
+2025-12-22 19:03:36.198 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/_vs/browserLink - null null
+2025-12-22 19:03:36.404 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-12-22 19:03:36.404 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-12-22 19:03:36.404 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/swagger-ui.css - 200 152034 text/css 311.9968ms
+2025-12-22 19:03:36.404 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 311.9866ms
+2025-12-22 19:03:36.649 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-12-22 19:03:36.649 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 557.1461ms
+2025-12-22 19:03:36.701 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/_vs/browserLink - 200 null text/javascript; charset=UTF-8 502.9767ms
+2025-12-22 19:03:36.837 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/v1/swagger.json - null null
+2025-12-22 19:03:36.854 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 17.4339ms
+2025-12-22 19:03:36.872 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/favicon-32x32.png - null null
+2025-12-22 19:03:36.872 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-12-22 19:03:36.872 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/favicon-32x32.png - 200 628 image/png 0.6899ms
+2025-12-22 19:03:44.969 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7096/api/Book - application/json 104
+2025-12-22 19:03:44.990 +03:00 [INF] Executing endpoint 'KutuphaneAPI.Controllers.BookController.Create (KutuphaneAPI)'
+2025-12-22 19:03:45.062 +03:00 [INF] Route matched with {action = "Create", controller = "Book"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KutuphaneDataAccess.DTOs.BookCreateDto) on controller KutuphaneAPI.Controllers.BookController (KutuphaneAPI).
+2025-12-22 19:03:46.962 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2025-12-22 19:03:50.241 +03:00 [INF] Kitap başarıyla oluşturuldu.
+2025-12-22 19:03:50.252 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Threading.Tasks.Task`1[[KutuphaneService.Interfaces.IResponse`1[[KutuphaneDataAccess.DTOs.BookCreateDto, KutuphaneDataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], KutuphaneService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-22 19:03:50.320 +03:00 [INF] Executed action KutuphaneAPI.Controllers.BookController.Create (KutuphaneAPI) in 5249.0431ms
+2025-12-22 19:03:50.320 +03:00 [INF] Executed endpoint 'KutuphaneAPI.Controllers.BookController.Create (KutuphaneAPI)'
+2025-12-22 19:03:50.340 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7096/api/Book - 200 null application/json; charset=utf-8 5371.0509ms
