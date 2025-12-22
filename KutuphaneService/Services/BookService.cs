@@ -63,7 +63,7 @@ namespace KutuphaneService.Services
 
                 _bookRepository.Delete(book);
                 _logger.LogInformation("Kitap başarıyla silindi.", book.Title);
-                return ResponseGeneric<BookQueryDto>.Success(null, "Kitap başarıyla silindi..");
+                return ResponseGeneric<BookQueryDto>.Success(null, "Kitap başarıyla silindi.");
             }
             catch
             {
@@ -138,6 +138,8 @@ namespace KutuphaneService.Services
 
         public Task<IResponse<Book>> Update(Book book)
         {
+            _logger.LogInformation("Kitap bilgileri başarıyla güncellendi.", book.Title);
+            _logger.LogWarning("Kitap bilgileri güncellenirken bir hata oluştu.", book.Title);
             throw new NotImplementedException();
         }
     }
