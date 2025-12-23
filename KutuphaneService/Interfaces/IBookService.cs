@@ -13,8 +13,10 @@ namespace KutuphaneService.Interfaces
         IResponse<IEnumerable<BookQueryDto>> ListAll();
         IResponse<BookQueryDto> GetById(int id);
         Task<IResponse<BookCreateDto>> Create(BookCreateDto book);
-        Task<IResponse<Book>> Update(Book book);
+        Task<IResponse<BookUpdateDto>> Update(BookUpdateDto bookUpdateDto);
         IResponse<BookQueryDto> Delete(int id);
         IResponse<IEnumerable<BookQueryDto>> GetByName(string title);
+        IResponse<IEnumerable<BookQueryDto>> GetBooksByCategoryId(int categoryId);
+        IResponse<IEnumerable<BookQueryDto>> GetBooksByAuthorId(int authorId);
     }
 }

@@ -217,7 +217,6 @@ C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug\net8.0\KutuphaneAPI.genruntimeconfig.cache
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug\net8.0\ref\KutuphaneAPI.dll
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\AutoMapper.dll
-C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
@@ -232,3 +231,4 @@ C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Serilog.Sinks.Console.dll
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
 C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\bin\Debug\net8.0\Serilog.Sinks.File.dll
+C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

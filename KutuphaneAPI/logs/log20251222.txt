@@ -34,3 +34,45 @@
 2025-12-22 19:03:50.320 +03:00 [INF] Executed action KutuphaneAPI.Controllers.BookController.Create (KutuphaneAPI) in 5249.0431ms
 2025-12-22 19:03:50.320 +03:00 [INF] Executed endpoint 'KutuphaneAPI.Controllers.BookController.Create (KutuphaneAPI)'
 2025-12-22 19:03:50.340 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7096/api/Book - 200 null application/json; charset=utf-8 5371.0509ms
+2025-12-22 20:15:49.236 +03:00 [INF] Now listening on: https://localhost:7096
+2025-12-22 20:15:49.263 +03:00 [INF] Now listening on: http://localhost:5245
+2025-12-22 20:15:49.396 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-22 20:15:49.397 +03:00 [INF] Hosting environment: Development
+2025-12-22 20:15:49.397 +03:00 [INF] Content root path: C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI
+2025-12-22 20:15:50.669 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger - null null
+2025-12-22 20:15:50.904 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger - 301 0 null 245.3291ms
+2025-12-22 20:15:50.912 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/index.html - null null
+2025-12-22 20:15:51.034 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/swagger-ui-standalone-preset.js - null null
+2025-12-22 20:15:51.034 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/swagger-ui-bundle.js - null null
+2025-12-22 20:15:51.043 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/swagger-ui.css - null null
+2025-12-22 20:15:51.065 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/index.html - 200 null text/html;charset=utf-8 152.6146ms
+2025-12-22 20:15:51.095 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-22 20:15:51.095 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/_vs/browserLink - null null
+2025-12-22 20:15:51.113 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 17.943ms
+2025-12-22 20:15:51.132 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-12-22 20:15:51.132 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-12-22 20:15:51.133 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/swagger-ui.css - 200 152034 text/css 91.8999ms
+2025-12-22 20:15:51.133 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 99.2228ms
+2025-12-22 20:15:51.152 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-12-22 20:15:51.152 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 118.3614ms
+2025-12-22 20:15:51.181 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/_vs/browserLink - 200 null text/javascript; charset=UTF-8 85.9275ms
+2025-12-22 20:15:51.403 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/v1/swagger.json - null null
+2025-12-22 20:15:51.414 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.4281ms
+2025-12-22 20:15:51.446 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/favicon-32x32.png - null null
+2025-12-22 20:15:51.448 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-12-22 20:15:51.448 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/favicon-32x32.png - 200 628 image/png 1.8952ms
+2025-12-22 20:16:01.296 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/api/Book/GetBooksByCategoryId?categoryId=0 - null null
+2025-12-22 20:16:01.307 +03:00 [INF] Executing endpoint 'KutuphaneAPI.Controllers.BookController.GetBooksByCategoryId (KutuphaneAPI)'
+2025-12-22 20:16:01.363 +03:00 [INF] Route matched with {action = "GetBooksByCategoryId", controller = "Book"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetBooksByCategoryId(Int32) on controller KutuphaneAPI.Controllers.BookController (KutuphaneAPI).
+2025-12-22 20:16:02.745 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2025-12-22 20:16:05.769 +03:00 [INF] Executing OkObjectResult, writing value of type 'KutuphaneService.Response.ResponseGeneric`1[[System.Collections.Generic.IEnumerable`1[[KutuphaneDataAccess.DTOs.BookQueryDto, KutuphaneDataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 20:16:05.827 +03:00 [INF] Executed action KutuphaneAPI.Controllers.BookController.GetBooksByCategoryId (KutuphaneAPI) in 4452.3785ms
+2025-12-22 20:16:05.828 +03:00 [INF] Executed endpoint 'KutuphaneAPI.Controllers.BookController.GetBooksByCategoryId (KutuphaneAPI)'
+2025-12-22 20:16:05.855 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/api/Book/GetBooksByCategoryId?categoryId=0 - 200 null application/json; charset=utf-8 4559.3723ms
+2025-12-22 20:16:13.480 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/api/Book/GetBooksByCategoryId?categoryId=1 - null null
+2025-12-22 20:16:13.483 +03:00 [INF] Executing endpoint 'KutuphaneAPI.Controllers.BookController.GetBooksByCategoryId (KutuphaneAPI)'
+2025-12-22 20:16:13.483 +03:00 [INF] Route matched with {action = "GetBooksByCategoryId", controller = "Book"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetBooksByCategoryId(Int32) on controller KutuphaneAPI.Controllers.BookController (KutuphaneAPI).
+2025-12-22 20:16:13.604 +03:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-12-22 20:16:13.604 +03:00 [INF] Executed action KutuphaneAPI.Controllers.BookController.GetBooksByCategoryId (KutuphaneAPI) in 120.8864ms
+2025-12-22 20:16:13.604 +03:00 [INF] Executed endpoint 'KutuphaneAPI.Controllers.BookController.GetBooksByCategoryId (KutuphaneAPI)'
+2025-12-22 20:16:13.605 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/api/Book/GetBooksByCategoryId?categoryId=1 - 404 null text/plain; charset=utf-8 125.2127ms

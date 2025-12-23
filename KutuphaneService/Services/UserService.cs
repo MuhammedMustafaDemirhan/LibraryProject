@@ -15,6 +15,7 @@ namespace KutuphaneService.Services
     {
         private readonly IGenericRepository<User> _userRepository;
         private readonly ILogger<UserService> _logger;
+
         public UserService(IGenericRepository<User> userRepository, ILogger<UserService> logger)
         {
             _logger = logger;
@@ -27,18 +28,32 @@ namespace KutuphaneService.Services
             {
                 if (user == null)
                 {
-                    return Task.FromResult<IResponse<User>>(ResponseGeneric<User>.Error("Kullanıcı bilgileri boş olamaz."));
+                    return Task.FromResult<IResponse<User>>(
+                        ResponseGeneric<User>.Error("Kullanıcı bilgileri boş olamaz.")
+                    );
                 }
 
                 _userRepository.Create(user);
 
-                _logger.LogInformation("Kullanıcı başarıyla oluşturuldu.", user.Name + " " + user.Surname);
-                return Task.FromResult<IResponse<User>>(ResponseGeneric<User>.Success(user, "Kullanıcı başarıyla oluşturuldu."));
+                _logger.LogInformation(
+                    "Kullanıcı başarıyla oluşturuldu.",
+                    user.Name + " " + user.Surname
+                );
+
+                return Task.FromResult<IResponse<User>>(
+                    ResponseGeneric<User>.Success(user, "Kullanıcı başarıyla oluşturuldu.")
+                );
             }
             catch
             {
-                _logger.LogWarning("Kullanıcı oluşturulurken bir hata oluştu.", user.Name + " " + user.Surname);
-                return Task.FromResult<IResponse<User>>(ResponseGeneric<User>.Error("Bir hata oluştu."));
+                _logger.LogWarning(
+                    "Kullanıcı oluşturulurken bir hata oluştu.",
+                    user.Name + " " + user.Surname
+                );
+
+                return Task.FromResult<IResponse<User>>(
+                    ResponseGeneric<User>.Error("Bir hata oluştu.")
+                );
             }
         }
 
@@ -56,11 +71,13 @@ namespace KutuphaneService.Services
                 _userRepository.Delete(user);
 
                 _logger.LogInformation("Kullanıcı başarıyla silindi.");
+
                 return ResponseGeneric<User>.Success(user, "Kullanıcı başarıyla silindi.");
             }
             catch
             {
                 _logger.LogWarning("Kullanıcı silinirken bir hata oluştu.");
+
                 return ResponseGeneric<User>.Error("Bir hata oluştu.");
             }
         }
@@ -88,14 +105,20 @@ namespace KutuphaneService.Services
         {
             try
             {
-                var userList = _userRepository.GetAll().Where(x => x.Name.ToLower().Contains(name.ToLower())).ToList();
+                var userList = _userRepository
+                    .GetAll()
+                    .Where(x => x.Name.ToLower().Contains(name.ToLower()))
+                    .ToList();
 
                 if (userList == null || userList.Count == 0)
                 {
                     return ResponseGeneric<IEnumerable<User>>.Error("Kullanıcı bulunamadı.");
                 }
 
-                return ResponseGeneric<IEnumerable<User>>.Success(userList, "Kullanıcı başarıyla bulundu.");
+                return ResponseGeneric<IEnumerable<User>>.Success(
+                    userList,
+                    "Kullanıcı başarıyla bulundu."
+                );
             }
             catch
             {
@@ -109,12 +132,15 @@ namespace KutuphaneService.Services
             {
                 var allUsers = _userRepository.GetAll().ToList();
 
-                if (allUsers.Count == 0 || allUsers == null)
+                if (allUsers == null || allUsers.Count == 0)
                 {
                     return ResponseGeneric<IEnumerable<User>>.Error("Kullanıcı bulunamadı.");
                 }
 
-                return ResponseGeneric<IEnumerable<User>>.Success(allUsers, "Kullanıcılar listelendi.");
+                return ResponseGeneric<IEnumerable<User>>.Success(
+                    allUsers,
+                    "Kullanıcılar listelendi."
+                );
             }
             catch
             {
@@ -126,6 +152,7 @@ namespace KutuphaneService.Services
         {
             _logger.LogInformation("Kullanıcı bilgileri başarıyla güncellendi.");
             _logger.LogWarning("Kullanıcı bilgileri güncellenirken bir hata oluştu.");
+
             throw new NotImplementedException();
         }
     }

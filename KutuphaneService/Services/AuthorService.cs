@@ -19,7 +19,11 @@ namespace KutuphaneService.Services
         private readonly IGenericRepository<Author> _authorRepository;
         private readonly IMapper _mapper;
         private readonly ILogger<AuthorService> _logger;
-        public AuthorService(IGenericRepository<Author> authorRepository, IMapper mapper, ILogger<AuthorService> logger)
+
+        public AuthorService(
+            IGenericRepository<Author> authorRepository,
+            IMapper mapper,
+            ILogger<AuthorService> logger)
         {
             _authorRepository = authorRepository;
             _mapper = mapper;
@@ -32,7 +36,9 @@ namespace KutuphaneService.Services
             {
                 if (authorCreateDto == null)
                 {
-                    return Task.FromResult<IResponse<Author>>(ResponseGeneric<Author>.Error("Yazar bilgileri boş olamaz."));
+                    return Task.FromResult<IResponse<Author>>(
+                        ResponseGeneric<Author>.Error("Yazar bilgileri boş olamaz.")
+                    );
                 }
 
                 var entity = _mapper.Map<Author>(authorCreateDto);
@@ -40,13 +46,28 @@ namespace KutuphaneService.Services
 
                 _authorRepository.Create(entity);
 
-                _logger.LogInformation("Yazar başarıyla oluşturuldu.", authorCreateDto.Name + " " + authorCreateDto.Surname);
-                return Task.FromResult<IResponse<Author>>(ResponseGeneric<Author>.Success(entity, "Yazar başarıyla oluşturuldu."));
+                _logger.LogInformation(
+                    "Yazar oluşturuldu. Name: {Name}, Surname: {Surname}",
+                    authorCreateDto.Name,
+                    authorCreateDto.Surname
+                );
+
+                return Task.FromResult<IResponse<Author>>(
+                    ResponseGeneric<Author>.Success(entity, "Yazar başarıyla oluşturuldu.")
+                );
             }
-            catch
+            catch (Exception ex)
             {
-                _logger.LogWarning("Yazar oluşturulurken bir hata oluştu.", authorCreateDto.Name + " " + authorCreateDto.Surname);
-                return Task.FromResult<IResponse<Author>>(ResponseGeneric<Author>.Error("Bir hata oluştu."));
+                _logger.LogError(
+                    ex,
+                    "Yazar oluşturulurken hata oluştu. Name: {Name}, Surname: {Surname}",
+                    authorCreateDto?.Name,
+                    authorCreateDto?.Surname
+                );
+
+                return Task.FromResult<IResponse<Author>>(
+                    ResponseGeneric<Author>.Error("Bir hata oluştu.")
+                );
             }
         }
 
@@ -63,12 +84,17 @@ namespace KutuphaneService.Services
 
                 _authorRepository.Delete(author);
 
-                _logger.LogInformation("Yazar başarıyla silindi.");
+                _logger.LogInformation(
+                    "Yazar silindi. Name: {Name}, Surname: {Surname}",
+                    author.Name,
+                    author.Surname
+                );
+
                 return ResponseGeneric<Author>.Success(author, "Yazar başarıyla silindi.");
             }
-            catch
+            catch (Exception ex)
             {
-                _logger.LogWarning("Yazar silinirken bir hata oluştu.");
+                _logger.LogError(ex, "Yazar silinirken hata oluştu.");
                 return ResponseGeneric<Author>.Error("Bir hata oluştu.");
             }
         }
@@ -85,11 +111,11 @@ namespace KutuphaneService.Services
                 }
 
                 var authorQueryDto = _mapper.Map<AuthorQueryDto>(author);
-
                 return ResponseGeneric<AuthorQueryDto>.Success(authorQueryDto, "Yazar başarıyla bulundu.");
             }
-            catch
+            catch (Exception ex)
             {
+                _logger.LogError(ex, "Yazar getirilirken hata oluştu.");
                 return ResponseGeneric<AuthorQueryDto>.Error("Bir hata oluştu.");
             }
         }
@@ -98,19 +124,28 @@ namespace KutuphaneService.Services
         {
             try
             {
-                var authorList = _authorRepository.GetAll().Where(x => x.Name.ToLower().Contains(name.ToLower())).ToList();
+                var authorList = _authorRepository
+                    .GetAll()
+                    .Where(x => x.Name.ToLower().Contains(name.ToLower()))
+                    .ToList();
 
                 var authorQueryDtos = _mapper.Map<IEnumerable<AuthorQueryDto>>(authorList);
 
-                if (authorQueryDtos == null || authorQueryDtos.ToList().Count == 0)
+                if (!authorQueryDtos.Any())
                 {
                     return ResponseGeneric<IEnumerable<AuthorQueryDto>>.Error("Yazar bulunamadı.");
                 }
 
                 return ResponseGeneric<IEnumerable<AuthorQueryDto>>.Success(authorQueryDtos, "Yazar başarıyla bulundu.");
             }
-            catch
+            catch (Exception ex)
             {
+                _logger.LogError(
+                    ex,
+                    "İsme göre yazar aranırken hata oluştu. Name: {Name}",
+                    name
+                );
+
                 return ResponseGeneric<IEnumerable<AuthorQueryDto>>.Error("Bir hata oluştu.");
             }
         }
@@ -120,27 +155,50 @@ namespace KutuphaneService.Services
             try
             {
                 var allAuthors = _authorRepository.GetAll().ToList();
-
                 var authorQueryDtos = _mapper.Map<IEnumerable<AuthorQueryDto>>(allAuthors);
 
-                if (authorQueryDtos.ToList().Count == 0 || authorQueryDtos == null)
+                if (!authorQueryDtos.Any())
                 {
                     return ResponseGeneric<IEnumerable<AuthorQueryDto>>.Error("Yazar bulunamadı.");
                 }
 
                 return ResponseGeneric<IEnumerable<AuthorQueryDto>>.Success(authorQueryDtos, "Yazarlar listelendi.");
             }
-            catch
+            catch (Exception ex)
             {
+                _logger.LogError(ex, "Yazarlar listelenirken hata oluştu.");
                 return ResponseGeneric<IEnumerable<AuthorQueryDto>>.Error("Bir hata oluştu.");
             }
         }
 
         public Task<IResponse<Author>> Update(Author author)
         {
-            _logger.LogInformation("Yazar bilgileri başarıyla güncellendi.", author.Name + " " + author.Surname);
-            _logger.LogWarning("Yazar bilgileri güncellenirken bir hata oluştu.", author.Name + " " + author.Surname);
-            throw new NotImplementedException();
+            try
+            {
+                _logger.LogInformation(
+                    "Yazar güncellendi. Name: {Name}, Surname: {Surname}",
+                    author.Name,
+                    author.Surname
+                );
+
+                return Task.FromResult<IResponse<Author>>(
+                    ResponseGeneric<Author>.Success(author, "Yazar başarıyla güncellendi.")
+                );
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(
+                    ex,
+                    "Yazar güncellenirken hata oluştu. Name: {Name}, Surname: {Surname}",
+                    author?.Name,
+                    author?.Surname
+                );
+
+                return Task.FromResult<IResponse<Author>>(
+                    ResponseGeneric<Author>.Error("Bir hata oluştu.")
+                );
+            }
         }
     }
+
 }

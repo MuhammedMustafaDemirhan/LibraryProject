@@ -117,6 +117,22 @@
   },
   {
     "ContainingType": "KutuphaneAPI.Controllers.BookController",
+    "Method": "GetBooksByCategoryId",
+    "RelativePath": "api/Book/GetBooksByCategoryId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "categoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KutuphaneAPI.Controllers.BookController",
     "Method": "GetById",
     "RelativePath": "api/Book/GetById",
     "HttpMethod": "GET",

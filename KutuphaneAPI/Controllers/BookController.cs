@@ -1,5 +1,6 @@
 ﻿using KutuphaneDataAccess.DTOs;
 using KutuphaneService.Interfaces;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -69,6 +70,42 @@ namespace KutuphaneAPI.Controllers
 
             if (!result.IsSuccess)
                 return NotFound("Kitap bulunamadı.");
+
+            return Ok(result);
+        }
+
+        [HttpGet("GetBooksByCategoryId")]
+        public IActionResult GetBooksByCategoryId(int categoryId)
+        {
+            var result = _bookService.GetBooksByCategoryId(categoryId);
+
+            if (!result.IsSuccess)
+                return NotFound("Kitap bulunamadı.");
+
+            return Ok(result);
+        }
+
+        [HttpGet("GetBooksByAuthorId")]
+        public IActionResult GetBooksByAuthorId(int authorId)
+        {
+            var result = _bookService.GetBooksByAuthorId(authorId);
+
+            if (!result.IsSuccess)
+                return NotFound("Kitap bulunamadı.");
+
+            return Ok(result);
+        }
+
+        [HttpPut]
+        public IActionResult Update(BookUpdateDto bookUpdateDto)
+        {
+            if (bookUpdateDto == null)
+                return BadRequest("Kitap bilgileri boş olamaz.");
+
+            var result = _bookService.Update(bookUpdateDto);
+
+            if (!result.Result.IsSuccess)
+                return BadRequest("Kitap güncellenemedi.");
 
             return Ok(result);
         }
