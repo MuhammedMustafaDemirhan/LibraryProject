@@ -22,7 +22,7 @@ namespace KutuphaneAPI.Controllers
             var categories = _categoryService.ListAll();
 
             if (!categories.IsSuccess)
-                return NotFound("Kategori bulunamadı.");
+                return NotFound(categories.Message);
 
             return Ok(categories);
         }
@@ -33,7 +33,7 @@ namespace KutuphaneAPI.Controllers
             var result = _categoryService.Delete(id);
 
             if (!result.IsSuccess)
-                return BadRequest("Silme işlemi başarısız oldu.");
+                return BadRequest(result.Message);
 
             return Ok(result);
         }
@@ -44,10 +44,10 @@ namespace KutuphaneAPI.Controllers
             if (category == null)
                 return BadRequest("Kategori bilgileri boş olamaz.");
 
-            var result = _categoryService.Create(category);
+            var result = _categoryService.Create(category).Result;
 
-            if (!result.Result.IsSuccess)
-                return BadRequest("Kategori oluşturulamadı.");
+            if (!result.IsSuccess)
+                return BadRequest(result.Message);
 
             return Ok(result);
         }
@@ -58,7 +58,7 @@ namespace KutuphaneAPI.Controllers
             var result = _categoryService.GetById(id);
 
             if (!result.IsSuccess)
-                return NotFound("Kategori bulunamadı.");
+                return NotFound(result.Message);
 
             return Ok(result);
         }
@@ -69,7 +69,7 @@ namespace KutuphaneAPI.Controllers
             var result = _categoryService.GetByName(name);
 
             if (!result.IsSuccess)
-                return NotFound("Kategori bulunamadı.");
+                return NotFound(result.Message);
 
             return Ok(result);
         }
@@ -80,10 +80,10 @@ namespace KutuphaneAPI.Controllers
             if (categoryUpdateDto == null)
                 return BadRequest("Kategori bilgileri boş olamaz.");
 
-            var result = _categoryService.Update(categoryUpdateDto);
+            var result = _categoryService.Update(categoryUpdateDto).Result;
 
-            if (!result.Result.IsSuccess)
-                return BadRequest("Kategori güncellenemedi.");
+            if (!result.IsSuccess)
+                return BadRequest(result.Message);
 
             return Ok(result);
         }

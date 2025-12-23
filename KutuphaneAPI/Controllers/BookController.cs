@@ -22,7 +22,7 @@ namespace KutuphaneAPI.Controllers
             var books = _bookService.ListAll();
 
             if(!books.IsSuccess)
-                return NotFound("Kitap bulunamadı.");
+                return NotFound(books.Message);
 
             return Ok(books);
         }
@@ -33,7 +33,7 @@ namespace KutuphaneAPI.Controllers
             var result = _bookService.Delete(id);
 
             if (!result.IsSuccess)
-                return BadRequest("Silme işlemi başarısız oldu.");
+                return BadRequest(result.Message);
 
             return Ok(result);
         }
@@ -44,10 +44,10 @@ namespace KutuphaneAPI.Controllers
             if (book == null)
                 return BadRequest("Kitap bilgileri boş olamaz.");
 
-            var result = _bookService.Create(book);
+            var result = _bookService.Create(book).Result;
 
-            if (!result.Result.IsSuccess)
-                return BadRequest("Kitap oluşturulamadı.");
+            if (!result.IsSuccess)
+                return BadRequest(result.Message);
 
             return Ok(result);
         }
@@ -58,7 +58,7 @@ namespace KutuphaneAPI.Controllers
             var result = _bookService.GetById(id);
 
             if (!result.IsSuccess)
-                return NotFound("Kitap bulunamadı.");
+                return NotFound(result.Message);
 
             return Ok(result);
         }
@@ -69,7 +69,7 @@ namespace KutuphaneAPI.Controllers
             var result = _bookService.GetByName(name);
 
             if (!result.IsSuccess)
-                return NotFound("Kitap bulunamadı.");
+                return NotFound(result.Message);
 
             return Ok(result);
         }
@@ -80,7 +80,7 @@ namespace KutuphaneAPI.Controllers
             var result = _bookService.GetBooksByCategoryId(categoryId);
 
             if (!result.IsSuccess)
-                return NotFound("Kitap bulunamadı.");
+                return NotFound(result.Message);
 
             return Ok(result);
         }
@@ -91,7 +91,7 @@ namespace KutuphaneAPI.Controllers
             var result = _bookService.GetBooksByAuthorId(authorId);
 
             if (!result.IsSuccess)
-                return NotFound("Kitap bulunamadı.");
+                return NotFound(result.Message);
 
             return Ok(result);
         }
@@ -102,10 +102,10 @@ namespace KutuphaneAPI.Controllers
             if (bookUpdateDto == null)
                 return BadRequest("Kitap bilgileri boş olamaz.");
 
-            var result = _bookService.Update(bookUpdateDto);
+            var result = _bookService.Update(bookUpdateDto).Result;
 
-            if (!result.Result.IsSuccess)
-                return BadRequest("Kitap güncellenemedi.");
+            if (!result.IsSuccess)
+                return BadRequest(result.Message);
 
             return Ok(result);
         }
