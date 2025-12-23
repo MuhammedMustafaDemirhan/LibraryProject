@@ -171,18 +171,34 @@ namespace KutuphaneService.Services
             }
         }
 
-        public Task<IResponse<Author>> Update(Author author)
+        public Task<IResponse<AuthorUpdateDto>> Update(AuthorUpdateDto authorUpdateDto)
         {
             try
             {
+                var authorEntity = _authorRepository.GetByIdAsync(authorUpdateDto.Id).Result;
+
+                if (authorEntity == null)
+                    return Task.FromResult<IResponse<AuthorUpdateDto>>(ResponseGeneric<AuthorUpdateDto>.Error("Yazar bulunamadı."));
+
+                if (authorUpdateDto.Name != null)
+                    authorEntity.Name = authorUpdateDto.Name;
+                if (authorUpdateDto.Surname != null)
+                    authorEntity.Surname = authorUpdateDto.Surname;
+                if (authorUpdateDto.PlaceOfBirth != null)
+                    authorEntity.PlaceOfBirth = authorUpdateDto.PlaceOfBirth;
+                if (authorUpdateDto.YearOfBirth != null)
+                    authorEntity.YearOfBirth = authorUpdateDto.YearOfBirth ?? authorEntity.YearOfBirth;
+
+                _authorRepository.Update(authorEntity);
+
                 _logger.LogInformation(
                     "Yazar güncellendi. Name: {Name}, Surname: {Surname}",
-                    author.Name,
-                    author.Surname
+                    authorEntity.Name,
+                    authorEntity.Surname
                 );
 
-                return Task.FromResult<IResponse<Author>>(
-                    ResponseGeneric<Author>.Success(author, "Yazar başarıyla güncellendi.")
+                return Task.FromResult<IResponse<AuthorUpdateDto>>(
+                    ResponseGeneric<AuthorUpdateDto>.Success(null, "Yazar başarıyla güncellendi.")
                 );
             }
             catch (Exception ex)
@@ -190,15 +206,14 @@ namespace KutuphaneService.Services
                 _logger.LogError(
                     ex,
                     "Yazar güncellenirken hata oluştu. Name: {Name}, Surname: {Surname}",
-                    author?.Name,
-                    author?.Surname
+                    authorUpdateDto?.Name,
+                    authorUpdateDto?.Surname
                 );
 
-                return Task.FromResult<IResponse<Author>>(
-                    ResponseGeneric<Author>.Error("Bir hata oluştu.")
+                return Task.FromResult<IResponse<AuthorUpdateDto>>(
+                    ResponseGeneric<AuthorUpdateDto>.Error("Bir hata oluştu.")
                 );
             }
         }
     }
-
 }

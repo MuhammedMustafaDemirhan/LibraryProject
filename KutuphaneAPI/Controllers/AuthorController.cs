@@ -22,7 +22,7 @@ namespace KutuphaneAPI.Controllers
             var authors = _authorService.ListAll();
 
             if (!authors.IsSuccess)
-                return NotFound("Yazar bulunamadı.");
+                return NotFound(authors.Message);
 
             return Ok(authors);
         }
@@ -33,7 +33,7 @@ namespace KutuphaneAPI.Controllers
             var author = _authorService.GetById(id);
 
             if (!author.IsSuccess)
-                return NotFound("Yazar bulunamadı.");
+                return NotFound(author.Message);
 
             return Ok(author);
         }
@@ -44,7 +44,7 @@ namespace KutuphaneAPI.Controllers
             var result = _authorService.GetByName(name);
 
             if (!result.IsSuccess)
-                return NotFound("Yazar bulunamadı.");
+                return NotFound(result.Message);
 
             return Ok(result);
         }
@@ -55,7 +55,7 @@ namespace KutuphaneAPI.Controllers
             var result = _authorService.Delete(id);
 
             if (!result.IsSuccess)
-                return BadRequest("Silme işlemi başarısız oldu.");
+                return BadRequest(result.Message);
 
             return Ok(result);
         }
@@ -66,10 +66,24 @@ namespace KutuphaneAPI.Controllers
             if (author == null)
                 return BadRequest("Yazar bilgileri boş olamaz.");
 
-            var result = _authorService.Create(author);
+            var result = _authorService.Create(author).Result;
 
-            if (!result.Result.IsSuccess)
-                return BadRequest("Yazar oluşturulamadı.");
+            if (!result.IsSuccess)
+                return BadRequest(result.Message);
+
+            return Ok(result);
+        }
+
+        [HttpPut]
+        public IActionResult Update([FromBody]AuthorUpdateDto author)
+        {
+            if (author == null)
+                return BadRequest("Yazar bilgileri boş olamaz.");
+
+            var result = _authorService.Update(author).Result;
+
+            if (!result.IsSuccess)
+                return BadRequest(result.Message);
 
             return Ok(result);
         }
