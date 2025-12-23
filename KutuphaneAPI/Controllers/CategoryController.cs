@@ -73,5 +73,19 @@ namespace KutuphaneAPI.Controllers
 
             return Ok(result);
         }
+
+        [HttpPut]
+        public IActionResult Update([FromBody]CategoryUpdateDto categoryUpdateDto)
+        {
+            if (categoryUpdateDto == null)
+                return BadRequest("Kategori bilgileri boş olamaz.");
+
+            var result = _categoryService.Update(categoryUpdateDto);
+
+            if (!result.Result.IsSuccess)
+                return BadRequest("Kategori güncellenemedi.");
+
+            return Ok(result);
+        }
     }
 }

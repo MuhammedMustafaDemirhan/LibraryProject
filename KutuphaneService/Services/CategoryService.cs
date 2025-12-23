@@ -182,19 +182,29 @@ namespace KutuphaneService.Services
             }
         }
 
-        public Task<IResponse<Category>> Update(Category category)
+        public Task<IResponse<CategoryUpdateDto>> Update(CategoryUpdateDto categoryUpdateDto)
         {
             try
             {
-                _categoryRepository.Update(category);
+                var categoryEntity = _categoryRepository.GetByIdAsync(categoryUpdateDto.Id).Result;
+
+                if (categoryEntity == null)
+                    return Task.FromResult<IResponse<CategoryUpdateDto>>(ResponseGeneric<CategoryUpdateDto>.Error("Kategori bulunamadı."));
+
+                if (categoryUpdateDto.Name != null)
+                    categoryEntity.Name = categoryUpdateDto.Name;
+                if (categoryUpdateDto.Description != null)
+                    categoryEntity.Description = categoryUpdateDto.Description;
+
+                _categoryRepository.Update(categoryEntity);
 
                 _logger.LogInformation(
                     "Kategori güncellendi. Name: {Name}",
-                    category.Name
+                    categoryEntity.Name
                 );
 
-                return Task.FromResult<IResponse<Category>>(
-                    ResponseGeneric<Category>.Success(category, "Kategori başarıyla güncellendi.")
+                return Task.FromResult<IResponse<CategoryUpdateDto>>(
+                    ResponseGeneric<CategoryUpdateDto>.Success(null, "Kategori başarıyla güncellendi.")
                 );
             }
             catch (Exception ex)
@@ -202,11 +212,11 @@ namespace KutuphaneService.Services
                 _logger.LogError(
                     ex,
                     "Kategori güncellenirken hata oluştu. Name: {Name}",
-                    category?.Name
+                    categoryUpdateDto?.Name
                 );
 
-                return Task.FromResult<IResponse<Category>>(
-                    ResponseGeneric<Category>.Error("Bir hata oluştu.")
+                return Task.FromResult<IResponse<CategoryUpdateDto>>(
+                    ResponseGeneric<CategoryUpdateDto>.Error("Bir hata oluştu.")
                 );
             }
         }

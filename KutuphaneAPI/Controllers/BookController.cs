@@ -97,7 +97,7 @@ namespace KutuphaneAPI.Controllers
         }
 
         [HttpPut]
-        public IActionResult Update(BookUpdateDto bookUpdateDto)
+        public IActionResult Update([FromBody]BookUpdateDto bookUpdateDto)
         {
             if (bookUpdateDto == null)
                 return BadRequest("Kitap bilgileri boş olamaz.");
