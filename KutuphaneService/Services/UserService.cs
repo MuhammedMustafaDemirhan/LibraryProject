@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace KutuphaneService.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private readonly IGenericRepository<User> _userRepository;
         private readonly ILogger<UserService> _logger;
@@ -27,27 +27,21 @@ namespace KutuphaneService.Services
             _mapper = mapper;
         }
 
-        public Task<IResponse<User>> Create(UserCreateDto userCreateDto)
+        public IResponse<UserCreateDto> Create(UserCreateDto userCreateDto)
         {
             try
             {
                 if (userCreateDto == null)
                 {
-                    return Task.FromResult<IResponse<User>>(
-                        ResponseGeneric<User>.Error("Kullanıcı bilgileri boş olamaz.")
-                    );
+                    return ResponseGeneric<UserCreateDto>.Error("Kullanıcı bilgileri boş olamaz.");
                 }
 
                 if (string.IsNullOrEmpty(userCreateDto.Username) || string.IsNullOrEmpty(userCreateDto.Email))
-                    return Task.FromResult<IResponse<User>>(
-                        ResponseGeneric<User>.Error("Kullanıcı adı veya e-posta adresi boş olamaz.")
-                    );
+                    return ResponseGeneric<UserCreateDto>.Error("Kullanıcı adı veya e-posta adresi boş olamaz.");
 
                 if (string.IsNullOrEmpty(userCreateDto.Password))
                 {
-                    return Task.FromResult<IResponse<User>>(
-                        ResponseGeneric<User>.Error("Şifre boş olamaz.")
-                    );
+                    return ResponseGeneric<UserCreateDto>.Error("Şifre boş olamaz.");
                 }
 
                 var hashedPassword = HashPassword(userCreateDto.Password);
@@ -63,10 +57,7 @@ namespace KutuphaneService.Services
     userEntity.Surname
 );
 
-
-                return Task.FromResult<IResponse<User>>(
-                    ResponseGeneric<User>.Success(userEntity, "Kullanıcı başarıyla oluşturuldu.")
-                );
+                return ResponseGeneric<UserCreateDto>.Success(null, "Kullanıcı başarıyla oluşturuldu.");
             }
             catch (Exception ex)
             {
@@ -77,11 +68,35 @@ namespace KutuphaneService.Services
                     userCreateDto?.Surname
                 );
 
-                return Task.FromResult<IResponse<User>>(
-                    ResponseGeneric<User>.Error("Bir hata oluştu.")
-                );
+                return ResponseGeneric<UserCreateDto>.Error("Bir hata oluştu.");
+            }
+        }
+
+        public IResponse<bool> LoginUser(UserLoginbDto userLoginDto)
+        {
+            if (userLoginDto == null)
+            {
+                return ResponseGeneric<bool>.Error("Giriş bilgileri boş olamaz.");
             }
 
+            if (string.IsNullOrWhiteSpace(userLoginDto.Password))
+            {
+                return ResponseGeneric<bool>.Error("Şifre boş olamaz.");
+            }
+
+            if (string.IsNullOrWhiteSpace(userLoginDto.Username)
+             && string.IsNullOrWhiteSpace(userLoginDto.Email))
+            {
+                return ResponseGeneric<bool>.Error("Kullanıcı adı veya e-posta girilmelidir.");
+            }
+
+            var checkUser = _userRepository.GetAll().FirstOrDefault(x => (x.Username == userLoginDto.Username || x.Email == userLoginDto.Email) && x.Password == HashPassword(userLoginDto.Password));
+
+
+            if (checkUser == null)
+                return ResponseGeneric<bool>.Error("Kullanıcı adı veya şifre hatalı.");
+
+            return ResponseGeneric<bool>.Success(true, "Giriş başarılı.");
         }
 
         private string HashPassword(string password)
