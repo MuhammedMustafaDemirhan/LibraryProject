@@ -1,4 +1,6 @@
-﻿using KutuphaneCore.Entities;
+﻿using AutoMapper;
+using KutuphaneCore.Entities;
+using KutuphaneDataAccess.DTOs;
 using KutuphaneDataAccess.Repository;
 using KutuphaneService.Interfaces;
 using KutuphaneService.Response;
@@ -6,154 +8,93 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace KutuphaneService.Services
 {
-    public class UserService : IUserService
+    public class UserService
     {
         private readonly IGenericRepository<User> _userRepository;
         private readonly ILogger<UserService> _logger;
+        private readonly IMapper _mapper;
 
-        public UserService(IGenericRepository<User> userRepository, ILogger<UserService> logger)
+        public UserService(IGenericRepository<User> userRepository, ILogger<UserService> logger, IMapper mapper)
         {
             _logger = logger;
             _userRepository = userRepository;
+            _mapper = mapper;
         }
 
-        public Task<IResponse<User>> Create(User user)
+        public Task<IResponse<User>> Create(UserCreateDto userCreateDto)
         {
             try
             {
-                if (user == null)
+                if (userCreateDto == null)
                 {
                     return Task.FromResult<IResponse<User>>(
                         ResponseGeneric<User>.Error("Kullanıcı bilgileri boş olamaz.")
                     );
                 }
 
-                _userRepository.Create(user);
+                if (string.IsNullOrEmpty(userCreateDto.Username) || string.IsNullOrEmpty(userCreateDto.Email))
+                    return Task.FromResult<IResponse<User>>(
+                        ResponseGeneric<User>.Error("Kullanıcı adı veya e-posta adresi boş olamaz.")
+                    );
+
+                if (string.IsNullOrEmpty(userCreateDto.Password))
+                {
+                    return Task.FromResult<IResponse<User>>(
+                        ResponseGeneric<User>.Error("Şifre boş olamaz.")
+                    );
+                }
+
+                var hashedPassword = HashPassword(userCreateDto.Password);
+
+                var userEntity = _mapper.Map<User>(userCreateDto);
+                userEntity.Password = hashedPassword;
+
+                _userRepository.Create(userEntity);
 
                 _logger.LogInformation(
-                    "Kullanıcı başarıyla oluşturuldu.",
-                    user.Name + " " + user.Surname
-                );
+    "Kullanıcı başarıyla oluşturuldu. Name: {Name} {Surname}",
+    userEntity.Name,
+    userEntity.Surname
+);
+
 
                 return Task.FromResult<IResponse<User>>(
-                    ResponseGeneric<User>.Success(user, "Kullanıcı başarıyla oluşturuldu.")
+                    ResponseGeneric<User>.Success(userEntity, "Kullanıcı başarıyla oluşturuldu.")
                 );
             }
-            catch
+            catch (Exception ex)
             {
-                _logger.LogWarning(
-                    "Kullanıcı oluşturulurken bir hata oluştu.",
-                    user.Name + " " + user.Surname
+                _logger.LogError(
+                    ex,
+                    "Kullanıcı oluşturulurken hata oluştu. Name: {Name} {Surname}",
+                    userCreateDto?.Name,
+                    userCreateDto?.Surname
                 );
 
                 return Task.FromResult<IResponse<User>>(
                     ResponseGeneric<User>.Error("Bir hata oluştu.")
                 );
             }
+
         }
 
-        public IResponse<User> Delete(int id)
+        private string HashPassword(string password)
         {
-            try
+            string secretKey = "'ug?('Zp^E!F)-kH<g1ohQG+yr}Db]";
+
+            using (var sha256 = SHA256.Create())
             {
-                var user = _userRepository.GetByIdAsync(id).Result;
-
-                if (user == null)
-                {
-                    return ResponseGeneric<User>.Error("Kullanıcı bulunamadı.");
-                }
-
-                _userRepository.Delete(user);
-
-                _logger.LogInformation("Kullanıcı başarıyla silindi.");
-
-                return ResponseGeneric<User>.Success(user, "Kullanıcı başarıyla silindi.");
+                var combinedPassword = password + secretKey;
+                var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(combinedPassword));
+                var hashedPassword = Convert.ToBase64String(bytes);
+                return hashedPassword;
             }
-            catch
-            {
-                _logger.LogWarning("Kullanıcı silinirken bir hata oluştu.");
-
-                return ResponseGeneric<User>.Error("Bir hata oluştu.");
-            }
-        }
-
-        public IResponse<User> GetById(int id)
-        {
-            try
-            {
-                var user = _userRepository.GetByIdAsync(id).Result;
-
-                if (user == null)
-                {
-                    return ResponseGeneric<User>.Success(null, "Kullanıcı bulunamadı.");
-                }
-
-                return ResponseGeneric<User>.Success(user, "Kullanıcı başarıyla bulundu.");
-            }
-            catch
-            {
-                return ResponseGeneric<User>.Error("Bir hata oluştu.");
-            }
-        }
-
-        public IResponse<IEnumerable<User>> GetByName(string name)
-        {
-            try
-            {
-                var userList = _userRepository
-                    .GetAll()
-                    .Where(x => x.Name.ToLower().Contains(name.ToLower()))
-                    .ToList();
-
-                if (userList == null || userList.Count == 0)
-                {
-                    return ResponseGeneric<IEnumerable<User>>.Error("Kullanıcı bulunamadı.");
-                }
-
-                return ResponseGeneric<IEnumerable<User>>.Success(
-                    userList,
-                    "Kullanıcı başarıyla bulundu."
-                );
-            }
-            catch
-            {
-                return ResponseGeneric<IEnumerable<User>>.Error("Bir hata oluştu.");
-            }
-        }
-
-        public IResponse<IEnumerable<User>> ListAll()
-        {
-            try
-            {
-                var allUsers = _userRepository.GetAll().ToList();
-
-                if (allUsers == null || allUsers.Count == 0)
-                {
-                    return ResponseGeneric<IEnumerable<User>>.Error("Kullanıcı bulunamadı.");
-                }
-
-                return ResponseGeneric<IEnumerable<User>>.Success(
-                    allUsers,
-                    "Kullanıcılar listelendi."
-                );
-            }
-            catch
-            {
-                return ResponseGeneric<IEnumerable<User>>.Error("Bir hata oluştu.");
-            }
-        }
-
-        public Task<IResponse<User>> Update(User user)
-        {
-            _logger.LogInformation("Kullanıcı bilgileri başarıyla güncellendi.");
-            _logger.LogWarning("Kullanıcı bilgileri güncellenirken bir hata oluştu.");
-
-            throw new NotImplementedException();
         }
     }
 }
