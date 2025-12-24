@@ -74,29 +74,51 @@ namespace KutuphaneService.Services
 
         public IResponse<bool> LoginUser(UserLoginbDto userLoginDto)
         {
-            if (userLoginDto == null)
+            try
             {
-                return ResponseGeneric<bool>.Error("Giriş bilgileri boş olamaz.");
-            }
+                if (userLoginDto == null)
+                {
+                    return ResponseGeneric<bool>.Error("Giriş bilgileri boş olamaz.");
+                }
 
-            if (string.IsNullOrWhiteSpace(userLoginDto.Password))
+                if (string.IsNullOrWhiteSpace(userLoginDto.Password))
+                {
+                    return ResponseGeneric<bool>.Error("Şifre boş olamaz.");
+                }
+
+                if (string.IsNullOrWhiteSpace(userLoginDto.Username)
+                 && string.IsNullOrWhiteSpace(userLoginDto.Email))
+                {
+                    return ResponseGeneric<bool>.Error("Kullanıcı adı veya e-posta girilmelidir.");
+                }
+
+                var checkUser = _userRepository.GetAll().FirstOrDefault(x =>
+                    (x.Username == userLoginDto.Username || x.Email == userLoginDto.Email)
+                    && x.Password == HashPassword(userLoginDto.Password));
+
+                if (checkUser == null)
+                    return ResponseGeneric<bool>.Error("Kullanıcı adı veya şifre hatalı.");
+
+                _logger.LogInformation(
+                    "Kullanıcı giriş yaptı. UserId: {UserId}, Username: {Username}, Email: {Email}",
+                    checkUser.Id,
+                    checkUser.Username,
+                    checkUser.Email
+                );
+
+                return ResponseGeneric<bool>.Success(true, "Giriş başarılı.");
+            }
+            catch (Exception ex)
             {
-                return ResponseGeneric<bool>.Error("Şifre boş olamaz.");
+                _logger.LogError(
+                    ex,
+                    "Login sırasında beklenmeyen hata oluştu. Username: {Username}, Email: {Email}",
+                    userLoginDto?.Username,
+                    userLoginDto?.Email
+                );
+
+                return ResponseGeneric<bool>.Error("Bir hata oluştu.");
             }
-
-            if (string.IsNullOrWhiteSpace(userLoginDto.Username)
-             && string.IsNullOrWhiteSpace(userLoginDto.Email))
-            {
-                return ResponseGeneric<bool>.Error("Kullanıcı adı veya e-posta girilmelidir.");
-            }
-
-            var checkUser = _userRepository.GetAll().FirstOrDefault(x => (x.Username == userLoginDto.Username || x.Email == userLoginDto.Email) && x.Password == HashPassword(userLoginDto.Password));
-
-
-            if (checkUser == null)
-                return ResponseGeneric<bool>.Error("Kullanıcı adı veya şifre hatalı.");
-
-            return ResponseGeneric<bool>.Success(true, "Giriş başarılı.");
         }
 
         private string HashPassword(string password)

@@ -27,9 +27,11 @@ builder.Services.AddAutoMapper(cfg => cfg.AddProfile(new MapProfile()));
 builder.Services.AddScoped<IGenericRepository<Author>, Repository<Author>>();
 builder.Services.AddScoped<IGenericRepository<Book>, Repository<Book>>();
 builder.Services.AddScoped<IGenericRepository<Category>, Repository<Category>>();
+builder.Services.AddScoped<IGenericRepository<User>, Repository<User>>();
 builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
