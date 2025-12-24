@@ -44,10 +44,15 @@ namespace KutuphaneService.Services
                     return ResponseGeneric<UserCreateDto>.Error("Şifre boş olamaz.");
                 }
 
+                var existingUser = _userRepository.GetAll().FirstOrDefault(x => x.Username == userCreateDto.Username || x.Email == userCreateDto.Email);
+                if (existingUser != null)
+                    return ResponseGeneric<UserCreateDto>.Error("Bu kullanıcı adı veya e-posta adresi zaten kullanılıyor.");
+
                 var hashedPassword = HashPassword(userCreateDto.Password);
 
                 var userEntity = _mapper.Map<User>(userCreateDto);
                 userEntity.Password = hashedPassword;
+                userEntity.CreatedDate = DateTime.Now;
 
                 _userRepository.Create(userEntity);
 

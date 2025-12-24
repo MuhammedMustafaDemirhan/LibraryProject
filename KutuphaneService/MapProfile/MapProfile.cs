@@ -22,6 +22,9 @@ namespace KutuphaneService.MapProfile
 
             CreateMap<Category, CategoryCreateDto>().ReverseMap();
             CreateMap<Category, CategoryQueryDto>().ReverseMap();
+
+            CreateMap<User, UserCreateDto>().ReverseMap();
+            CreateMap<User, UserLoginbDto>().ReverseMap();
         }
     }
 }

@@ -43,6 +43,22 @@
   },
   {
     "ContainingType": "KutuphaneAPI.Controllers.AuthorController",
+    "Method": "Update",
+    "RelativePath": "api/Author",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "author",
+        "Type": "KutuphaneCore.DTOs.AuthorUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KutuphaneAPI.Controllers.AuthorController",
     "Method": "GetById",
     "RelativePath": "api/Author/GetById",
     "HttpMethod": "GET",
@@ -111,6 +127,38 @@
         "Name": "book",
         "Type": "KutuphaneDataAccess.DTOs.BookCreateDto",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KutuphaneAPI.Controllers.BookController",
+    "Method": "Update",
+    "RelativePath": "api/Book",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookUpdateDto",
+        "Type": "KutuphaneDataAccess.DTOs.BookUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KutuphaneAPI.Controllers.BookController",
+    "Method": "GetBooksByAuthorId",
+    "RelativePath": "api/Book/GetBooksByAuthorId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "authorId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -207,6 +255,22 @@
   },
   {
     "ContainingType": "KutuphaneAPI.Controllers.CategoryController",
+    "Method": "Update",
+    "RelativePath": "api/Category",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "categoryUpdateDto",
+        "Type": "KutuphaneDataAccess.DTOs.CategoryUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KutuphaneAPI.Controllers.CategoryController",
     "Method": "GetById",
     "RelativePath": "api/Category/GetById",
     "HttpMethod": "GET",
@@ -233,6 +297,38 @@
         "Name": "name",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KutuphaneAPI.Controllers.UserController",
+    "Method": "CreateUser",
+    "RelativePath": "api/User",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "KutuphaneDataAccess.DTOs.UserCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KutuphaneAPI.Controllers.UserController",
+    "Method": "LoginUser",
+    "RelativePath": "api/User/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "KutuphaneDataAccess.DTOs.UserLoginbDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
