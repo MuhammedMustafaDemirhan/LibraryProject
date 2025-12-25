@@ -1,10 +1,11 @@
 ﻿using KutuphaneDataAccess.DTOs;
 using KutuphaneService.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KutuphaneAPI.Controllers
-{
+{ 
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase

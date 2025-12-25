@@ -79,7 +79,6 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-
 builder.Services.AddDbContext<AppDbContext>();
 builder.Services.AddAutoMapper(cfg => cfg.AddProfile(new MapProfile()));
 builder.Services.AddScoped<IGenericRepository<Author>, Repository<Author>>();

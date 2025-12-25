@@ -1,50 +1,77 @@
 ﻿using KutuphaneCore.DTOs;
-using KutuphaneCore.Entities;
 using KutuphaneService.Interfaces;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KutuphaneAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
+    [Route("api/[controller]")]
     public class AuthorController : ControllerBase
     {
         private readonly IAuthorService _authorService;
+
         public AuthorController(IAuthorService authorService)
         {
             _authorService = authorService;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult GetAll()
         {
-            var authors = _authorService.ListAll();
+            var result = _authorService.ListAll();
+            if (!result.IsSuccess)
+                return NotFound(result.Message);
 
-            if (!authors.IsSuccess)
-                return NotFound(authors.Message);
-
-            return Ok(authors);
+            return Ok(result);
         }
 
-        [HttpGet("GetById")]
+        [AllowAnonymous]
+        [HttpGet("[action]")]
         public IActionResult GetById(int id)
         {
-            var author = _authorService.GetById(id);
+            var result = _authorService.GetById(id);
+            if (!result.IsSuccess)
+                return NotFound(result.Message);
 
-            if (!author.IsSuccess)
-                return NotFound(author.Message);
-
-            return Ok(author);
+            return Ok(result);
         }
 
-        [HttpGet("GetByName")]
+        [AllowAnonymous]
+        [HttpGet("[action]")]
         public IActionResult GetByName(string name)
         {
             var result = _authorService.GetByName(name);
-
             if (!result.IsSuccess)
                 return NotFound(result.Message);
+
+            return Ok(result);
+        }
+
+        [HttpPost]
+        public IActionResult Create(AuthorCreateDto author)
+        {
+            if (author == null)
+                return BadRequest("Yazar bilgileri boş olamaz.");
+
+            var result = _authorService.Create(author).Result;
+            if (!result.IsSuccess)
+                return BadRequest(result.Message);
+
+            return Ok(result);
+        }
+
+        [HttpPut]
+        public IActionResult Update(AuthorUpdateDto author)
+        {
+            if (author == null)
+                return BadRequest("Yazar bilgileri boş olamaz.");
+
+            var result = _authorService.Update(author).Result;
+            if (!result.IsSuccess)
+                return BadRequest(result.Message);
 
             return Ok(result);
         }
@@ -53,35 +80,6 @@ namespace KutuphaneAPI.Controllers
         public IActionResult Delete(int id)
         {
             var result = _authorService.Delete(id);
-
-            if (!result.IsSuccess)
-                return BadRequest(result.Message);
-
-            return Ok(result);
-        }
-
-        [HttpPost]
-        public IActionResult Create([FromBody]AuthorCreateDto author)
-        {
-            if (author == null)
-                return BadRequest("Yazar bilgileri boş olamaz.");
-
-            var result = _authorService.Create(author).Result;
-
-            if (!result.IsSuccess)
-                return BadRequest(result.Message);
-
-            return Ok(result);
-        }
-
-        [HttpPut]
-        public IActionResult Update([FromBody]AuthorUpdateDto author)
-        {
-            if (author == null)
-                return BadRequest("Yazar bilgileri boş olamaz.");
-
-            var result = _authorService.Update(author).Result;
-
             if (!result.IsSuccess)
                 return BadRequest(result.Message);
 
