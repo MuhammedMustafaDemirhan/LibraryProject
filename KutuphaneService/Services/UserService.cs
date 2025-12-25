@@ -4,10 +4,14 @@ using KutuphaneDataAccess.DTOs;
 using KutuphaneDataAccess.Repository;
 using KutuphaneService.Interfaces;
 using KutuphaneService.Response;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,12 +23,14 @@ namespace KutuphaneService.Services
         private readonly IGenericRepository<User> _userRepository;
         private readonly ILogger<UserService> _logger;
         private readonly IMapper _mapper;
+        private readonly IConfiguration _configuration;
 
-        public UserService(IGenericRepository<User> userRepository, ILogger<UserService> logger, IMapper mapper)
+        public UserService(IGenericRepository<User> userRepository, ILogger<UserService> logger, IMapper mapper, IConfiguration configuration)
         {
             _logger = logger;
             _userRepository = userRepository;
             _mapper = mapper;
+            _configuration = configuration;
         }
 
         public IResponse<UserCreateDto> Create(UserCreateDto userCreateDto)
@@ -77,24 +83,24 @@ namespace KutuphaneService.Services
             }
         }
 
-        public IResponse<bool> LoginUser(UserLoginbDto userLoginDto)
+        public IResponse<string> LoginUser(UserLoginbDto userLoginDto)
         {
             try
             {
                 if (userLoginDto == null)
                 {
-                    return ResponseGeneric<bool>.Error("Giriş bilgileri boş olamaz.");
+                    return ResponseGeneric<string>.Error("Giriş bilgileri boş olamaz.");
                 }
 
                 if (string.IsNullOrWhiteSpace(userLoginDto.Password))
                 {
-                    return ResponseGeneric<bool>.Error("Şifre boş olamaz.");
+                    return ResponseGeneric<string>.Error("Şifre boş olamaz.");
                 }
 
                 if (string.IsNullOrWhiteSpace(userLoginDto.Username)
                  && string.IsNullOrWhiteSpace(userLoginDto.Email))
                 {
-                    return ResponseGeneric<bool>.Error("Kullanıcı adı veya e-posta girilmelidir.");
+                    return ResponseGeneric<string>.Error("Kullanıcı adı veya e-posta girilmelidir.");
                 }
 
                 var checkUser = _userRepository.GetAll().FirstOrDefault(x =>
@@ -102,7 +108,9 @@ namespace KutuphaneService.Services
                     && x.Password == HashPassword(userLoginDto.Password));
 
                 if (checkUser == null)
-                    return ResponseGeneric<bool>.Error("Kullanıcı adı veya şifre hatalı.");
+                    return ResponseGeneric<string>.Error("Kullanıcı adı veya şifre hatalı.");
+
+                var generatedToken = GenerateJwtToken(checkUser);
 
                 _logger.LogInformation(
                     "Kullanıcı giriş yaptı. UserId: {UserId}, Username: {Username}, Email: {Email}",
@@ -111,7 +119,7 @@ namespace KutuphaneService.Services
                     checkUser.Email
                 );
 
-                return ResponseGeneric<bool>.Success(true, "Giriş başarılı.");
+                return ResponseGeneric<string>.Success(generatedToken, "Giriş başarılı.");
             }
             catch (Exception ex)
             {
@@ -122,7 +130,7 @@ namespace KutuphaneService.Services
                     userLoginDto?.Email
                 );
 
-                return ResponseGeneric<bool>.Error("Bir hata oluştu.");
+                return ResponseGeneric<string>.Error("Bir hata oluştu.");
             }
         }
 
@@ -137,6 +145,29 @@ namespace KutuphaneService.Services
                 var hashedPassword = Convert.ToBase64String(bytes);
                 return hashedPassword;
             }
+        }
+
+        private string GenerateJwtToken(User user)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.Name),
+                new Claim(ClaimTypes.Sid, user.Id.ToString()),
+                new Claim(ClaimTypes.Email, user.Email)
+            };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+                issuer: _configuration["Jwt:Issuer"],
+                audience: _configuration["Jwt:Audience"],
+                claims: claims,
+                expires: DateTime.Now.AddMinutes(int.Parse(_configuration["Jwt:ExpireMinutes"])),
+                signingCredentials: creds
+                );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }

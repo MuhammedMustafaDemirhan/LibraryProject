@@ -11,6 +11,6 @@ namespace KutuphaneService.Interfaces
     public interface IUserService
     {
         IResponse<UserCreateDto> Create(UserCreateDto userCreateDto);
-        IResponse<bool> LoginUser(UserLoginbDto userLoginDto);
+        IResponse<string> LoginUser(UserLoginbDto userLoginDto);
     }
 }

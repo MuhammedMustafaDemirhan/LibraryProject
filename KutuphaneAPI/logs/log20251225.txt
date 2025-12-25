@@ -26,3 +26,44 @@
 2025-12-25 20:23:07.603 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/favicon-32x32.png - null null
 2025-12-25 20:23:07.604 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
 2025-12-25 20:23:07.604 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/favicon-32x32.png - 200 628 image/png 1.4631ms
+2025-12-25 20:43:24.301 +03:00 [INF] User profile is available. Using 'C:\Users\muham\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-25 20:43:24.772 +03:00 [INF] Now listening on: https://localhost:7096
+2025-12-25 20:43:24.773 +03:00 [INF] Now listening on: http://localhost:5245
+2025-12-25 20:43:24.914 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-25 20:43:24.915 +03:00 [INF] Hosting environment: Development
+2025-12-25 20:43:24.915 +03:00 [INF] Content root path: C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI
+2025-12-25 20:43:26.339 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger - null null
+2025-12-25 20:43:26.697 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger - 301 0 null 381.7978ms
+2025-12-25 20:43:26.721 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/index.html - null null
+2025-12-25 20:43:26.921 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/index.html - 200 null text/html;charset=utf-8 201.0399ms
+2025-12-25 20:43:26.923 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/swagger-ui.css - null null
+2025-12-25 20:43:26.923 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/swagger-ui-standalone-preset.js - null null
+2025-12-25 20:43:26.923 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/swagger-ui-bundle.js - null null
+2025-12-25 20:43:26.973 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/_vs/browserLink - null null
+2025-12-25 20:43:26.973 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-25 20:43:27.003 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 30.7242ms
+2025-12-25 20:43:27.022 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-12-25 20:43:27.022 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-12-25 20:43:27.026 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 103.285ms
+2025-12-25 20:43:27.026 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/swagger-ui.css - 200 152034 text/css 103.3832ms
+2025-12-25 20:43:27.053 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-12-25 20:43:27.053 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 130.5843ms
+2025-12-25 20:43:27.083 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/_vs/browserLink - 200 null text/javascript; charset=UTF-8 110.3911ms
+2025-12-25 20:43:27.329 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/v1/swagger.json - null null
+2025-12-25 20:43:27.362 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 39.0828ms
+2025-12-25 20:44:40.553 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7096/api/User/Login - application/json 107
+2025-12-25 20:44:40.593 +03:00 [INF] Executing endpoint 'KutuphaneAPI.Controllers.UserController.LoginUser (KutuphaneAPI)'
+2025-12-25 20:44:40.658 +03:00 [INF] Route matched with {action = "LoginUser", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult LoginUser(KutuphaneDataAccess.DTOs.UserLoginbDto) on controller KutuphaneAPI.Controllers.UserController (KutuphaneAPI).
+2025-12-25 20:44:42.666 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2025-12-25 20:44:46.143 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-12-25 20:44:46.154 +03:00 [INF] Executed action KutuphaneAPI.Controllers.UserController.LoginUser (KutuphaneAPI) in 5484.5465ms
+2025-12-25 20:44:46.155 +03:00 [INF] Executed endpoint 'KutuphaneAPI.Controllers.UserController.LoginUser (KutuphaneAPI)'
+2025-12-25 20:44:46.185 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7096/api/User/Login - 400 null text/plain; charset=utf-8 5631.8679ms
+2025-12-25 20:45:01.126 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7096/api/User/Login - application/json 108
+2025-12-25 20:45:01.128 +03:00 [INF] Executing endpoint 'KutuphaneAPI.Controllers.UserController.LoginUser (KutuphaneAPI)'
+2025-12-25 20:45:01.129 +03:00 [INF] Route matched with {action = "LoginUser", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult LoginUser(KutuphaneDataAccess.DTOs.UserLoginbDto) on controller KutuphaneAPI.Controllers.UserController (KutuphaneAPI).
+2025-12-25 20:45:01.404 +03:00 [INF] Kullanıcı giriş yaptı. UserId: 1, Username: mami.dmrhn, Email: mami@gmail.com
+2025-12-25 20:45:01.405 +03:00 [INF] Executing OkObjectResult, writing value of type 'KutuphaneService.Response.ResponseGeneric`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-25 20:45:01.413 +03:00 [INF] Executed action KutuphaneAPI.Controllers.UserController.LoginUser (KutuphaneAPI) in 283.3242ms
+2025-12-25 20:45:01.413 +03:00 [INF] Executed endpoint 'KutuphaneAPI.Controllers.UserController.LoginUser (KutuphaneAPI)'
+2025-12-25 20:45:01.413 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7096/api/User/Login - 200 null application/json; charset=utf-8 287.534ms
