@@ -2,6 +2,7 @@
 using KutuphaneService.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace KutuphaneAPI.Controllers
 {
@@ -17,6 +18,7 @@ namespace KutuphaneAPI.Controllers
             _bookService = bookService;
         }
 
+        [EnableRateLimiting("RateLimiter")]
         [AllowAnonymous]
         [HttpGet]
         public IActionResult GetAll()
@@ -28,6 +30,7 @@ namespace KutuphaneAPI.Controllers
             return Ok(result);
         }
 
+        [EnableRateLimiting("RateLimiter")]
         [AllowAnonymous]
         [HttpGet("[action]")]
         public IActionResult GetById(int id)
@@ -39,6 +42,7 @@ namespace KutuphaneAPI.Controllers
             return Ok(result);
         }
 
+        [EnableRateLimiting("RateLimiter")]
         [AllowAnonymous]
         [HttpGet("[action]")]
         public IActionResult GetByName(string name)
@@ -50,6 +54,7 @@ namespace KutuphaneAPI.Controllers
             return Ok(result);
         }
 
+        [EnableRateLimiting("RateLimiter")]
         [AllowAnonymous]
         [HttpGet("[action]")]
         public IActionResult GetBooksByCategoryId(int categoryId)
@@ -61,6 +66,7 @@ namespace KutuphaneAPI.Controllers
             return Ok(result);
         }
 
+        [EnableRateLimiting("RateLimiter")]
         [AllowAnonymous]
         [HttpGet("[action]")]
         public IActionResult GetBooksByAuthorId(int authorId)

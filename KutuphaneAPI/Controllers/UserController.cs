@@ -1,13 +1,12 @@
 ﻿using KutuphaneDataAccess.DTOs;
 using KutuphaneService.Interfaces;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace KutuphaneAPI.Controllers
-{ 
-    [Route("api/[controller]")]
+{
     [ApiController]
+    [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -17,13 +16,12 @@ namespace KutuphaneAPI.Controllers
             _userService = userService;
         }
 
-        [HttpPost]
-        public IActionResult CreateUser([FromBody]UserCreateDto user)
+        [EnableRateLimiting("RateLimiter")]
+        [HttpPost("Register")]
+        public IActionResult CreateUser([FromBody] UserCreateDto user)
         {
             if (user == null)
-            {
                 return BadRequest("Kullanıcı bilgileri boş olamaz.");
-            }
 
             var result = _userService.Create(user);
 
@@ -33,8 +31,9 @@ namespace KutuphaneAPI.Controllers
             return Ok(result);
         }
 
+        [EnableRateLimiting("RateLimiter")]
         [HttpPost("Login")]
-        public IActionResult LoginUser([FromBody]UserLoginbDto user)
+        public IActionResult LoginUser([FromBody] UserLoginbDto user)
         {
             if (user == null)
                 return BadRequest("Kullanıcı bilgileri boş olamaz.");

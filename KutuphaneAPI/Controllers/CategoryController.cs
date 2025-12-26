@@ -2,6 +2,7 @@
 using KutuphaneService.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace KutuphaneAPI.Controllers
 {
@@ -18,6 +19,7 @@ namespace KutuphaneAPI.Controllers
         }
 
         [AllowAnonymous]
+        [EnableRateLimiting("RateLimiter")]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -29,6 +31,7 @@ namespace KutuphaneAPI.Controllers
         }
 
         [AllowAnonymous]
+        [EnableRateLimiting("RateLimiter")]
         [HttpGet("[action]")]
         public IActionResult GetById(int id)
         {
@@ -40,6 +43,7 @@ namespace KutuphaneAPI.Controllers
         }
 
         [AllowAnonymous]
+        [EnableRateLimiting("RateLimiter")]
         [HttpGet("[action]")]
         public IActionResult GetByName(string name)
         {
