@@ -6,6 +6,7 @@ using KutuphaneService.MapProfile;
 using KutuphaneService.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.RateLimiting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using System.Text;
@@ -91,7 +92,11 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-builder.Services.AddDbContext<AppDbContext>();
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
 builder.Services.AddAutoMapper(cfg => cfg.AddProfile(new MapProfile()));
 builder.Services.AddScoped<IGenericRepository<Author>, Repository<Author>>();
 builder.Services.AddScoped<IGenericRepository<Book>, Repository<Book>>();

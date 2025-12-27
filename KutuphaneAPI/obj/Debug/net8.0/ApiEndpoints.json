@@ -11,22 +11,6 @@
   },
   {
     "ContainingType": "KutuphaneAPI.Controllers.AuthorController",
-    "Method": "Delete",
-    "RelativePath": "api/Author",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "KutuphaneAPI.Controllers.AuthorController",
     "Method": "Create",
     "RelativePath": "api/Author",
     "HttpMethod": "POST",
@@ -53,6 +37,22 @@
         "Name": "author",
         "Type": "KutuphaneCore.DTOs.AuthorUpdateDto",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KutuphaneAPI.Controllers.AuthorController",
+    "Method": "Delete",
+    "RelativePath": "api/Author",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -101,22 +101,6 @@
   },
   {
     "ContainingType": "KutuphaneAPI.Controllers.BookController",
-    "Method": "Delete",
-    "RelativePath": "api/Book",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "KutuphaneAPI.Controllers.BookController",
     "Method": "Create",
     "RelativePath": "api/Book",
     "HttpMethod": "POST",
@@ -143,6 +127,22 @@
         "Name": "bookUpdateDto",
         "Type": "KutuphaneDataAccess.DTOs.BookUpdateDto",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KutuphaneAPI.Controllers.BookController",
+    "Method": "Delete",
+    "RelativePath": "api/Book",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -223,22 +223,6 @@
   },
   {
     "ContainingType": "KutuphaneAPI.Controllers.CategoryController",
-    "Method": "Delete",
-    "RelativePath": "api/Category",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "KutuphaneAPI.Controllers.CategoryController",
     "Method": "Create",
     "RelativePath": "api/Category",
     "HttpMethod": "POST",
@@ -265,6 +249,22 @@
         "Name": "categoryUpdateDto",
         "Type": "KutuphaneDataAccess.DTOs.CategoryUpdateDto",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KutuphaneAPI.Controllers.CategoryController",
+    "Method": "Delete",
+    "RelativePath": "api/Category",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -303,22 +303,6 @@
   },
   {
     "ContainingType": "KutuphaneAPI.Controllers.UserController",
-    "Method": "CreateUser",
-    "RelativePath": "api/User",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "user",
-        "Type": "KutuphaneDataAccess.DTOs.UserCreateDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "KutuphaneAPI.Controllers.UserController",
     "Method": "LoginUser",
     "RelativePath": "api/User/Login",
     "HttpMethod": "POST",
@@ -328,6 +312,22 @@
       {
         "Name": "user",
         "Type": "KutuphaneDataAccess.DTOs.UserLoginbDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KutuphaneAPI.Controllers.UserController",
+    "Method": "CreateUser",
+    "RelativePath": "api/User/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "KutuphaneDataAccess.DTOs.UserCreateDto",
         "IsRequired": true
       }
     ],

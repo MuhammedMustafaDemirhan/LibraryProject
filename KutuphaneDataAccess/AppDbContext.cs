@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KutuphaneDataAccess
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {
         public DbSet<Author> Authors { get; set; }
         public DbSet<User> Users { get; set; }
@@ -17,7 +17,7 @@ namespace KutuphaneDataAccess
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=LibraryDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

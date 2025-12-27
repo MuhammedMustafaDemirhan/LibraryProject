@@ -1,0 +1,82 @@
+2025-12-27 12:08:02.124 +03:00 [INF] User profile is available. Using 'C:\Users\muham\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-27 12:08:03.028 +03:00 [INF] Now listening on: https://localhost:7096
+2025-12-27 12:08:03.030 +03:00 [INF] Now listening on: http://localhost:5245
+2025-12-27 12:08:03.274 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-27 12:08:03.275 +03:00 [INF] Hosting environment: Development
+2025-12-27 12:08:03.275 +03:00 [INF] Content root path: C:\Users\muham\source\repos\LibraryProject\LibraryProject\KutuphaneAPI
+2025-12-27 12:08:04.540 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger - null null
+2025-12-27 12:08:04.989 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger - 301 0 null 459.5912ms
+2025-12-27 12:08:05.001 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/index.html - null null
+2025-12-27 12:08:05.132 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/index.html - 200 null text/html;charset=utf-8 131.3631ms
+2025-12-27 12:08:05.137 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/swagger-ui.css - null null
+2025-12-27 12:08:05.137 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/swagger-ui-standalone-preset.js - null null
+2025-12-27 12:08:05.137 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/swagger-ui-bundle.js - null null
+2025-12-27 12:08:05.138 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-27 12:08:05.153 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/_framework/aspnetcore-browser-refresh.js - 200 13760 application/javascript; charset=utf-8 15.8904ms
+2025-12-27 12:08:05.200 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/_vs/browserLink - null null
+2025-12-27 12:08:05.229 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-12-27 12:08:05.229 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-12-27 12:08:05.233 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/swagger-ui.css - 200 152034 text/css 96.5153ms
+2025-12-27 12:08:05.233 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 96.1092ms
+2025-12-27 12:08:05.277 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-12-27 12:08:05.278 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 140.8013ms
+2025-12-27 12:08:05.291 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/_vs/browserLink - 200 null text/javascript; charset=UTF-8 92.2532ms
+2025-12-27 12:08:05.488 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/swagger/v1/swagger.json - null null
+2025-12-27 12:08:05.520 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 32.8746ms
+2025-12-27 12:08:14.851 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/api/Author - null null
+2025-12-27 12:08:14.885 +03:00 [INF] Executing endpoint 'KutuphaneAPI.Controllers.AuthorController.GetAll (KutuphaneAPI)'
+2025-12-27 12:08:14.921 +03:00 [INF] Route matched with {action = "GetAll", controller = "Author"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAll() on controller KutuphaneAPI.Controllers.AuthorController (KutuphaneAPI).
+2025-12-27 12:08:16.429 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2025-12-27 12:08:19.383 +03:00 [INF] Executed DbCommand (51ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[CreatedDate], [a].[Name], [a].[PlaceOfBirth], [a].[Surname], [a].[YearOfBirth]
+FROM [Authors] AS [a]
+2025-12-27 12:08:19.505 +03:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-12-27 12:08:19.516 +03:00 [INF] Executed action KutuphaneAPI.Controllers.AuthorController.GetAll (KutuphaneAPI) in 4585.8991ms
+2025-12-27 12:08:19.517 +03:00 [INF] Executed endpoint 'KutuphaneAPI.Controllers.AuthorController.GetAll (KutuphaneAPI)'
+2025-12-27 12:08:19.542 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/api/Author - 404 null text/plain; charset=utf-8 4692.8811ms
+2025-12-27 12:08:47.078 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7096/api/User/Login - application/json 81
+2025-12-27 12:08:47.081 +03:00 [INF] Executing endpoint 'KutuphaneAPI.Controllers.UserController.LoginUser (KutuphaneAPI)'
+2025-12-27 12:08:47.095 +03:00 [INF] Route matched with {action = "LoginUser", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult LoginUser(KutuphaneDataAccess.DTOs.UserLoginbDto) on controller KutuphaneAPI.Controllers.UserController (KutuphaneAPI).
+2025-12-27 12:08:47.610 +03:00 [INF] Executed DbCommand (79ms) [Parameters=[@__userLoginDto_Username_0='?' (Size = 4000), @__userLoginDto_Email_1='?' (Size = 4000), @__HashPassword_2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedDate], [u].[Email], [u].[Name], [u].[Password], [u].[Surname], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__userLoginDto_Username_0 OR [u].[Email] = @__userLoginDto_Email_1) AND [u].[Password] = @__HashPassword_2
+2025-12-27 12:08:47.663 +03:00 [INF] Kullanıcı giriş yaptı. UserId: 1, Username: mami.dmrhn, Email: mami@gmail.com
+2025-12-27 12:08:47.663 +03:00 [INF] Executing OkObjectResult, writing value of type 'KutuphaneService.Response.ResponseGeneric`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-27 12:08:47.671 +03:00 [INF] Executed action KutuphaneAPI.Controllers.UserController.LoginUser (KutuphaneAPI) in 575.2114ms
+2025-12-27 12:08:47.671 +03:00 [INF] Executed endpoint 'KutuphaneAPI.Controllers.UserController.LoginUser (KutuphaneAPI)'
+2025-12-27 12:08:47.671 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7096/api/User/Login - 200 null application/json; charset=utf-8 593.2917ms
+2025-12-27 12:09:02.924 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7096/api/Author - application/json 93
+2025-12-27 12:09:02.934 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-12-27 12:09:02.944 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-12-27 12:09:02.944 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7096/api/Author - 401 0 null 20.9848ms
+2025-12-27 12:09:17.444 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7096/api/Author - application/json 93
+2025-12-27 12:09:17.568 +03:00 [INF] Executing endpoint 'KutuphaneAPI.Controllers.AuthorController.Create (KutuphaneAPI)'
+2025-12-27 12:09:17.571 +03:00 [INF] Route matched with {action = "Create", controller = "Author"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(KutuphaneCore.DTOs.AuthorCreateDto) on controller KutuphaneAPI.Controllers.AuthorController (KutuphaneAPI).
+2025-12-27 12:09:17.953 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Authors] ([CreatedDate], [Name], [PlaceOfBirth], [Surname], [YearOfBirth])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-12-27 12:09:18.015 +03:00 [INF] Yazar oluşturuldu. Name: string, Surname: string
+2025-12-27 12:09:18.016 +03:00 [INF] Executing OkObjectResult, writing value of type 'KutuphaneService.Response.ResponseGeneric`1[[KutuphaneCore.Entities.Author, KutuphaneCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-27 12:09:18.041 +03:00 [INF] Executed action KutuphaneAPI.Controllers.AuthorController.Create (KutuphaneAPI) in 469.7442ms
+2025-12-27 12:09:18.042 +03:00 [INF] Executed endpoint 'KutuphaneAPI.Controllers.AuthorController.Create (KutuphaneAPI)'
+2025-12-27 12:09:18.042 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7096/api/Author - 200 null application/json; charset=utf-8 599.2007ms
+2025-12-27 12:09:25.459 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7096/api/Author - null null
+2025-12-27 12:09:25.462 +03:00 [INF] Executing endpoint 'KutuphaneAPI.Controllers.AuthorController.GetAll (KutuphaneAPI)'
+2025-12-27 12:09:25.462 +03:00 [INF] Route matched with {action = "GetAll", controller = "Author"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAll() on controller KutuphaneAPI.Controllers.AuthorController (KutuphaneAPI).
+2025-12-27 12:09:25.476 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[CreatedDate], [a].[Name], [a].[PlaceOfBirth], [a].[Surname], [a].[YearOfBirth]
+FROM [Authors] AS [a]
+2025-12-27 12:09:25.481 +03:00 [INF] Executing OkObjectResult, writing value of type 'KutuphaneService.Response.ResponseGeneric`1[[System.Collections.Generic.IEnumerable`1[[KutuphaneCore.DTOs.AuthorQueryDto, KutuphaneDataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-27 12:09:25.488 +03:00 [INF] Executed action KutuphaneAPI.Controllers.AuthorController.GetAll (KutuphaneAPI) in 25.3271ms
+2025-12-27 12:09:25.488 +03:00 [INF] Executed endpoint 'KutuphaneAPI.Controllers.AuthorController.GetAll (KutuphaneAPI)'
+2025-12-27 12:09:25.488 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7096/api/Author - 200 null application/json; charset=utf-8 28.8425ms
+2025-12-27 12:09:39.271 +03:00 [INF] Request starting HTTP/2 DELETE https://localhost:7096/api/Author?id=1002 - null null
+2025-12-27 12:09:39.272 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-12-27 12:09:39.272 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-12-27 12:09:39.272 +03:00 [INF] Request finished HTTP/2 DELETE https://localhost:7096/api/Author?id=1002 - 401 0 null 1.2022ms
