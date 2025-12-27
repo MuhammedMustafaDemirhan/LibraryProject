@@ -15,11 +15,6 @@ namespace KutuphaneDataAccess
         public DbSet<Category> Categories { get; set; }
         public DbSet<Book> Books { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
